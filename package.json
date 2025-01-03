@@ -15,5 +15,13 @@
   "bugs": {
     "url": "https://github.com/amruta387/AmyFlix-Client/issues"
   },
-  "homepage": "https://github.com/amruta387/AmyFlix-Client#readme"
+  "homepage": "https://github.com/amruta387/AmyFlix-Client#readme",
+  "dependencies": {
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "@parcel/transformer-sass": "^2.13.3",
+    "process": "^0.11.10"
+  }
 }
