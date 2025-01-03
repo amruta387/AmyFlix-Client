@@ -1,0 +1,19 @@
+{
+  "name": "amyflix-client",
+  "version": "1.0.0",
+  "description": "react app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/amruta387/AmyFlix-Client.git"
+  },
+  "author": "Amruta",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/amruta387/AmyFlix-Client/issues"
+  },
+  "homepage": "https://github.com/amruta387/AmyFlix-Client#readme"
+}
