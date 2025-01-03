@@ -7,7 +7,7 @@ import "./index.scss";
 const AmyFlixApplication = () => {
     return (
         <div className="amy-flix">
-            <div>Good morning</div>
+            <div>Good Morning</div>
         </div>
     );
 };

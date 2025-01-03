@@ -2954,7 +2954,7 @@ const AmyFlixApplication = ()=>{
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         className: "amy-flix",
         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-            children: "Good morning"
+            children: "Good Morning"
         }, void 0, false, {
             fileName: "src/index.jsx",
             lineNumber: 10,
