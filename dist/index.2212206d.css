@@ -1,4 +1,70 @@
 .amy-flix {
   color: #4682b4;
 }
+
+.movie-card {
+  cursor: pointer;
+  border: 1px solid #ccc;
+  margin: 10px;
+  padding: 10px;
+  transition: transform .2s;
+}
+
+.movie-card:hover {
+  border-color: #007bff;
+  transform: scale(1.05);
+}
+
+.movie-card img {
+  object-fit: cover;
+  border-radius: 10px;
+  width: 200px;
+  height: 300px;
+  transition: transform .3s, box-shadow .3s;
+  box-shadow: 0 4px 8px #0003;
+}
+
+.movie-card img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px #0000004d;
+}
+
+.movie-view {
+  border: 1px solid #ccc;
+  max-width: 600px;
+  margin: 20px;
+  padding: 20px;
+}
+
+.movie-view img {
+  width: 200px;
+  margin-bottom: 20px;
+  display: block;
+}
+
+.movie-view button {
+  color: #fff;
+  cursor: pointer;
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+  margin-top: 20px;
+  padding: 10px 15px;
+  transition: background-color .3s;
+}
+
+.movie-view button:hover {
+  background-color: #0056b3;
+}
+
+.main-view-container {
+  flex-wrap: wrap;
+  gap: 10px;
+  display: flex;
+}
+
+.main-view-title {
+  margin-bottom: 20px;
+  font-size: 2rem;
+}
 /*# sourceMappingURL=index.2212206d.css.map */

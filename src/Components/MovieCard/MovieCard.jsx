@@ -1,8 +1,10 @@
 import React from "react";
+import "./MovieCard.css";
 
 const MovieCard = ({ movie, onClick }) => {
     return (
-        <div onClick={onClick} style={{ cursor: "pointer", margin: "10px", border: "1px solid #ccc", padding: "10px" }}>
+        <div className="movie-card" onClick={onClick}>
+            <img src={movie.poster} alt={`${movie.title} poster`} />
             <h3>{movie.title}</h3>
         </div>
     );
