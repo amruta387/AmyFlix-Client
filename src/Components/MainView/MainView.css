@@ -1,11 +1,18 @@
-
+/* MainView.css */
 .main-view-container {
+    padding: 20px;
+    text-align: center;
+}
+
+.movies-grid {
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
+    justify-content: center;
 }
 
-.main-view-title {
-    font-size: 2rem;
+.movies-grid h1 {
     margin-bottom: 20px;
+    font-size: 2rem;
+    color: #333;
 }
