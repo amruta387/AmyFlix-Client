@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "./MainView.css"; 
+import "./MainView.css";
 import MovieCard from "../MovieCard/MovieCard";
 import MovieView from "../MovieView/MovieView";
 
@@ -32,11 +32,31 @@ const MainView = () => {
     }, []);
 
     if (selectedMovie) {
+        const similarMovies = movies.filter(
+            (movie) => movie.genre === selectedMovie.genre && movie.id !== selectedMovie.id
+        );
+    
         return (
-            <MovieView movie={selectedMovie} onBackClick={() => setSelectedMovie(null)} />
+            <div className="movie-view-container">
+                <MovieView 
+                    movie={selectedMovie} 
+                    onBackClick={() => setSelectedMovie(null)} 
+                />
+                <hr />
+                <h2 className="similar-movies-heading">Similar Movies</h2>
+                <div className="similar-movies-grid">
+                    {similarMovies.map((movie) => (
+                        <MovieCard 
+                            key={movie.id} 
+                            movie={movie} 
+                            onClick={() => setSelectedMovie(movie)} 
+                        />
+                    ))}
+                </div>
+            </div>
         );
     }
-
+    
     return (
         <div className="main-view-container">
             <h1>Bollywood Movies</h1>

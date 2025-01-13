@@ -18796,14 +18796,54 @@ const MainView = ()=>{
             console.error("Error fetching movies:", error);
         });
     }, []);
-    if (selectedMovie) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _movieViewDefault.default), {
-        movie: selectedMovie,
-        onBackClick: ()=>setSelectedMovie(null)
-    }, void 0, false, {
-        fileName: "src/Components/MainView/MainView.jsx",
-        lineNumber: 36,
-        columnNumber: 13
-    }, undefined);
+    if (selectedMovie) {
+        const similarMovies = movies.filter((movie)=>movie.genre === selectedMovie.genre && movie.id !== selectedMovie.id);
+        return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+            className: "movie-view-container",
+            children: [
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _movieViewDefault.default), {
+                    movie: selectedMovie,
+                    onBackClick: ()=>setSelectedMovie(null)
+                }, void 0, false, {
+                    fileName: "src/Components/MainView/MainView.jsx",
+                    lineNumber: 41,
+                    columnNumber: 17
+                }, undefined),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("hr", {}, void 0, false, {
+                    fileName: "src/Components/MainView/MainView.jsx",
+                    lineNumber: 45,
+                    columnNumber: 17
+                }, undefined),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h2", {
+                    className: "similar-movies-heading",
+                    children: "Similar Movies"
+                }, void 0, false, {
+                    fileName: "src/Components/MainView/MainView.jsx",
+                    lineNumber: 46,
+                    columnNumber: 17
+                }, undefined),
+                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                    className: "similar-movies-grid",
+                    children: similarMovies.map((movie)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _movieCardDefault.default), {
+                            movie: movie,
+                            onClick: ()=>setSelectedMovie(movie)
+                        }, movie.id, false, {
+                            fileName: "src/Components/MainView/MainView.jsx",
+                            lineNumber: 49,
+                            columnNumber: 25
+                        }, undefined))
+                }, void 0, false, {
+                    fileName: "src/Components/MainView/MainView.jsx",
+                    lineNumber: 47,
+                    columnNumber: 17
+                }, undefined)
+            ]
+        }, void 0, true, {
+            fileName: "src/Components/MainView/MainView.jsx",
+            lineNumber: 40,
+            columnNumber: 13
+        }, undefined);
+    }
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         className: "main-view-container",
         children: [
@@ -18811,7 +18851,7 @@ const MainView = ()=>{
                 children: "Bollywood Movies"
             }, void 0, false, {
                 fileName: "src/Components/MainView/MainView.jsx",
-                lineNumber: 42,
+                lineNumber: 62,
                 columnNumber: 13
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -18821,18 +18861,18 @@ const MainView = ()=>{
                         onClick: ()=>setSelectedMovie(movie)
                     }, movie.id, false, {
                         fileName: "src/Components/MainView/MainView.jsx",
-                        lineNumber: 45,
+                        lineNumber: 65,
                         columnNumber: 21
                     }, undefined))
             }, void 0, false, {
                 fileName: "src/Components/MainView/MainView.jsx",
-                lineNumber: 43,
+                lineNumber: 63,
                 columnNumber: 13
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "src/Components/MainView/MainView.jsx",
-        lineNumber: 41,
+        lineNumber: 61,
         columnNumber: 9
     }, undefined);
 };
@@ -18859,21 +18899,33 @@ parcelHelpers.defineInteropFlag(exports);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
-var _propTypes = require("prop-types"); // Import PropTypes
+var _propTypes = require("prop-types");
 var _propTypesDefault = parcelHelpers.interopDefault(_propTypes);
 var _movieCardCss = require("./MovieCard.css");
 const MovieCard = ({ movie, onClick })=>{
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         className: "movie-card",
         onClick: onClick,
-        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
-            children: movie.title
-        }, void 0, false, {
-            fileName: "src/Components/MovieCard/MovieCard.jsx",
-            lineNumber: 8,
-            columnNumber: 13
-        }, undefined)
-    }, void 0, false, {
+        children: [
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
+                src: movie.poster,
+                alt: `${movie.title} poster`,
+                className: "movie-card-poster"
+            }, void 0, false, {
+                fileName: "src/Components/MovieCard/MovieCard.jsx",
+                lineNumber: 8,
+                columnNumber: 13
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
+                className: "movie-card-title",
+                children: movie.title
+            }, void 0, false, {
+                fileName: "src/Components/MovieCard/MovieCard.jsx",
+                lineNumber: 13,
+                columnNumber: 13
+            }, undefined)
+        ]
+    }, void 0, true, {
         fileName: "src/Components/MovieCard/MovieCard.jsx",
         lineNumber: 7,
         columnNumber: 9
@@ -18883,7 +18935,8 @@ _c = MovieCard;
 MovieCard.propTypes = {
     movie: (0, _propTypesDefault.default).shape({
         id: (0, _propTypesDefault.default).string.isRequired,
-        title: (0, _propTypesDefault.default).string.isRequired
+        title: (0, _propTypesDefault.default).string.isRequired,
+        poster: (0, _propTypesDefault.default).string.isRequired
     }).isRequired,
     onClick: (0, _propTypesDefault.default).func.isRequired
 };
@@ -19655,7 +19708,7 @@ parcelHelpers.defineInteropFlag(exports);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
-var _propTypes = require("prop-types"); // Import PropTypes
+var _propTypes = require("prop-types");
 var _propTypesDefault = parcelHelpers.interopDefault(_propTypes);
 var _movieViewCss = require("./MovieView.css");
 const MovieView = ({ movie, onBackClick })=>{
