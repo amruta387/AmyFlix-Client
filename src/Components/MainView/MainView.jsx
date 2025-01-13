@@ -1,49 +1,66 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./MainView.css";
 import MovieCard from "../MovieCard/MovieCard";
 import MovieView from "../MovieView/MovieView";
 
 const MainView = () => {
+    const [movies, setMovies] = useState([]);
     const [selectedMovie, setSelectedMovie] = useState(null);
 
-    const movies = [
-        {
-            id: 1,
-            title: "Jawan",
-            description: "A man with a mission confronts his past as he takes on a journey of redemption and justice.",
-            poster: "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/igPVDl7X2WNYBnvnC0O0oQKXSpF.jpg",
-            genre: "Action, Drama",
-            director: "Atlee Kumar",
-        },
-        {
-            id: 2,
-            title: "Rocky Aur Rani Kii Prem Kahaani",
-            description: "A quirky love story where opposites attract, navigating family dynamics and personal growth.",
-            poster: "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/fFWTc3o5gO3Heq6nPqOnjOaOBvv.jpg",
-            genre: "Romantic Comedy, Drama",
-            director: "Karan Johar",
-        },
-        {
-            id: 3,
-            title: "Pathaan",
-            description: "An exiled RAW agent joins forces with his team to save India from a dangerous threat.",
-            poster: "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/kGgB1AiOogVfAmMokukr9kIJZCJ.jpg",
-            genre: "Action, Thriller",
-            director: "Siddharth Anand",
-        },
-    ];
-    
+    useEffect(() => {
+        fetch("https://amy-flix-movie-app-ce4aa0da3eb4.herokuapp.com/movies")
+            .then((response) => {
+                if (!response.ok) {
+                    throw new Error("Failed to fetch movies");
+                }
+                return response.json();
+            })
+            .then((data) => {
+                const transformedMovies = data.map((movie) => ({
+                    id: movie._id,
+                    title: movie.title,
+                    description: movie.genre.description,
+                    poster: movie.poster,
+                    genre: movie.genre.name,
+                    director: movie.director.name,
+                }));
+                setMovies(transformedMovies);
+            })
+            .catch((error) => {
+                console.error("Error fetching movies:", error);
+            });
+    }, []);
 
     if (selectedMovie) {
+        const similarMovies = movies.filter(
+            (movie) => movie.genre === selectedMovie.genre && movie.id !== selectedMovie.id
+        );
+    
         return (
-            <MovieView movie={selectedMovie} onBackClick={() => setSelectedMovie(null)} />
+            <div className="movie-view-container">
+                <MovieView 
+                    movie={selectedMovie} 
+                    onBackClick={() => setSelectedMovie(null)} 
+                />
+                <hr />
+                <h2 className="similar-movies-heading">Similar Movies</h2>
+                <div className="similar-movies-grid">
+                    {similarMovies.map((movie) => (
+                        <MovieCard 
+                            key={movie.id} 
+                            movie={movie} 
+                            onClick={() => setSelectedMovie(movie)} 
+                        />
+                    ))}
+                </div>
+            </div>
         );
     }
-
+    
     return (
-        <div>
-            <h1 className="main-view-title">Bollywood Movies</h1>
-            <div className="main-view-container">
+        <div className="main-view-container">
+            <h1>Bollywood Movies</h1>
+            <div className="movies-grid">
                 {movies.map((movie) => (
                     <MovieCard
                         key={movie.id}
