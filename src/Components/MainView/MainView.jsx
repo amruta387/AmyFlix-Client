@@ -62,11 +62,12 @@ const MainView = () => {
     // Non-authenticated view with Login and Signup buttons
     if (!user) {
         if (showLogin) {
-            return <LoginView onLoggedIn={handleLogin} onSignupClicked={() => setShowSignup(true)} />;
+            return <LoginView onLoggedIn={handleLogin} 
+                            onSignupClicked={() => { setShowSignup(true); setShowLogin(false); }} />;
         }
 
         if (showSignup) {
-            return <SignupView onSignedUp={() => setShowLogin(true)} />;
+            return <SignupView onSignedUp={() => { setShowLogin(true); setShowSignup(false); }} />;
         }
 
         return (

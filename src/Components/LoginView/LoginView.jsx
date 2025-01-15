@@ -52,7 +52,12 @@ const LoginView = ({ onLoggedIn, onSignupClicked }) => {
                 {error && <p className="error-message">{error}</p>}
                 <button type="submit">Log In</button>
             </form>
-            
+            <p className="toggle-form">
+                Don't have an account? {" "}
+                <span onClick={onSignupClicked} className="toggle-link">
+                    Sign Up
+                </span>
+            </p>
         </div>
     );
 };
