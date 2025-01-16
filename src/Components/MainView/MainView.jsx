@@ -63,7 +63,7 @@ const MainView = () => {
     if (!user) {
         if (showLogin) {
             return <LoginView onLoggedIn={handleLogin} 
-                            onSignupClicked={() => { setShowSignup(true); setShowLogin(false); }} />;
+                                onSignupClicked={() => { setShowSignup(true); setShowLogin(false); }} />;
         }
 
         if (showSignup) {

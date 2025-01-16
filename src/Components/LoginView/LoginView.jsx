@@ -20,7 +20,7 @@ const LoginView = ({ onLoggedIn, onSignupClicked }) => {
             .then((data) => {
                 if (data.token) {
                     localStorage.setItem("token", data.token);
-                    onLoggedIn(data); // Notify parent about successful login
+                    onLoggedIn(data); 
                 } else {
                     setError("Invalid credentials. Please try again.");
                 }
