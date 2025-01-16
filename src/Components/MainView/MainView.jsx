@@ -4,6 +4,7 @@ import MovieCard from "../MovieCard/MovieCard";
 import MovieView from "../MovieView/MovieView";
 import LoginView from "../LoginView/LoginView";
 import SignupView from "../SignupView/SignupView";
+import { Container, Row, Col, Button } from "react-bootstrap";
 
 const MainView = () => {
     const [movies, setMovies] = useState([]);
@@ -12,20 +13,17 @@ const MainView = () => {
     const [showLogin, setShowLogin] = useState(false);
     const [showSignup, setShowSignup] = useState(false);
 
-    // Handle login
     const handleLogin = (loggedInUser) => {
         setUser(loggedInUser);
         localStorage.setItem("user", JSON.stringify(loggedInUser));
-        setShowLogin(false); // Hide the login view after successful login
+        setShowLogin(false);
     };
 
-    // Handle logout
     const handleLogout = () => {
         localStorage.clear();
         setUser(null);
     };
 
-    // Fetch movies
     const fetchMovies = (token) => {
         fetch("https://amy-flix-movie-app-ce4aa0da3eb4.herokuapp.com/movies", {
             headers: {
@@ -46,6 +44,7 @@ const MainView = () => {
                     poster: movie.poster,
                     genre: movie.genre.name,
                     director: movie.director.name,
+                    releaseYear: movie.release_year,
                 }));
                 setMovies(transformedMovies);
             })
@@ -59,11 +58,10 @@ const MainView = () => {
         }
     }, [user]);
 
-    // Non-authenticated view with Login and Signup buttons
     if (!user) {
         if (showLogin) {
             return <LoginView onLoggedIn={handleLogin} 
-                                onSignupClicked={() => { setShowSignup(true); setShowLogin(false); }} />;
+                            onSignupClicked={() => { setShowSignup(true); setShowLogin(false); }} />;
         }
 
         if (showSignup) {
@@ -75,62 +73,63 @@ const MainView = () => {
                 <h1>Welcome to Bollywood Movies</h1>
                 <p>New here? Sign up to get started. Already a member? Log in!</p>
                 <div className="auth-buttons">
-                    <button className="auth-button" onClick={() => setShowLogin(true)}>
+                    <Button variant="primary" onClick={() => setShowLogin(true)}>
                         Login
-                    </button>
-                    <button className="auth-button signup-button" onClick={() => setShowSignup(true)}>
+                    </Button>
+                    <Button variant="success" onClick={() => setShowSignup(true)}>
                         Signup
-                    </button>
+                    </Button>
                 </div>
             </div>
         );
     }
 
-    // Authenticated user view
     if (selectedMovie) {
         const similarMovies = movies.filter(
             (movie) => movie.genre === selectedMovie.genre && movie.id !== selectedMovie.id
         );
 
         return (
-            <div className="movie-view-container">
+            <Container>
                 <MovieView
                     movie={selectedMovie}
                     onBackClick={() => setSelectedMovie(null)}
                 />
                 <hr />
-                <h2 className="similar-movies-heading">Similar Movies</h2>
-                <div className="similar-movies-grid">
+                <h2>Similar Movies</h2>
+                <Row>
                     {similarMovies.map((movie) => (
-                        <MovieCard
-                            key={movie.id}
-                            movie={movie}
-                            onClick={() => setSelectedMovie(movie)}
-                        />
+                        <Col sm={6} md={4} lg={3} key={movie.id}>
+                            <MovieCard
+                                movie={movie}
+                                onClick={() => setSelectedMovie(movie)}
+                            />
+                        </Col>
                     ))}
-                </div>
-            </div>
+                </Row>
+            </Container>
         );
     }
 
     return (
-        <div className="main-view-container">
+        <Container>
             <header className="main-view-header">
                 <h1>Bollywood Movies</h1>
-                <button className="logout-button" onClick={handleLogout}>
+                <Button variant="danger" onClick={handleLogout}>
                     Logout
-                </button>
+                </Button>
             </header>
-            <div className="movies-grid">
+            <Row>
                 {movies.map((movie) => (
-                    <MovieCard
-                        key={movie.id}
-                        movie={movie}
-                        onClick={() => setSelectedMovie(movie)}
-                    />
+                    <Col sm={6} md={4} lg={3} key={movie.id}>
+                        <MovieCard
+                            movie={{...movie}}
+                            onClick={() => setSelectedMovie(movie)}
+                        />
+                    </Col>
                 ))}
-            </div>
-        </div>
+            </Row>
+        </Container>
     );
 };
 
