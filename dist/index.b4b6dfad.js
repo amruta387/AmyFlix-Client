@@ -19969,7 +19969,7 @@ const LoginView = ({ onLoggedIn, onSignupClicked })=>{
         }).then((response)=>response.json()).then((data)=>{
             if (data.token) {
                 localStorage.setItem("token", data.token);
-                onLoggedIn(data); // Notify parent about successful login
+                onLoggedIn(data);
             } else setError("Invalid credentials. Please try again.");
         }).catch((error)=>{
             setError("Something went wrong. Please try again later.");
