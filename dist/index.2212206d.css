@@ -13521,4 +13521,13 @@ h1 {
 .toggle-link:hover {
   color: #0056b3;
 }
+
+.signup-view-container .form-group {
+  margin-bottom: 15px;
+}
+
+.signup-view-container .form-label {
+  text-align: left;
+  margin-bottom: 5px;
+}
 /*# sourceMappingURL=index.2212206d.css.map */
