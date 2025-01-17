@@ -76,3 +76,12 @@
 .toggle-link:hover {
     color: #0056b3;
 }
+
+.signup-view-container .form-group {
+    margin-bottom: 15px;
+}
+
+.signup-view-container .form-label {
+    margin-bottom: 5px;
+    text-align: left;
+}
