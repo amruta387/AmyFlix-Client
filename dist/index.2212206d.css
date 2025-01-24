@@ -13530,4 +13530,34 @@ h1 {
   text-align: left;
   margin-bottom: 5px;
 }
+
+.custom-navbar {
+  margin-bottom: 1.5rem;
+  box-shadow: 0 4px 6px #0000001a;
+}
+
+.custom-navbar .navbar-brand {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.custom-navbar .nav-link {
+  color: #f8f9fa;
+  font-size: 1rem;
+}
+
+.custom-navbar .nav-link:hover {
+  color: #adb5bd;
+}
+
+.custom-navbar .btn-outline-danger {
+  color: #ff6b6b;
+  border-color: #ff6b6b;
+  font-size: .9rem;
+}
+
+.custom-navbar .btn-outline-danger:hover {
+  color: #fff;
+  background-color: #ff6b6b;
+}
 /*# sourceMappingURL=index.2212206d.css.map */

@@ -1,8 +1,10 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom"; // Import useNavigate
 import { Form, Button, Spinner, Alert, Container } from "react-bootstrap";
 import "./SignupView.css";
 
-const SignupView = ({ onSignedUp }) => {
+const SignupView = () => {
+    const navigate = useNavigate(); // Initialize useNavigate
     const [formData, setFormData] = useState({
         username: "",
         password: "",
@@ -57,7 +59,6 @@ const SignupView = ({ onSignedUp }) => {
                 name: "",
                 birthday: "",
             });
-            onSignedUp();
         } catch (error) {
             setErrors({ general: "Signup failed. Please try again later." });
         } finally {
@@ -184,7 +185,11 @@ const SignupView = ({ onSignedUp }) => {
             </Form>
             <p className="text-center mt-3">
                 Already have an account?{" "}
-                <span onClick={onSignedUp} className="toggle-link" tabIndex={0}>
+                <span
+                    onClick={() => navigate("/login")} // Navigate to the login page
+                    className="toggle-link"
+                    tabIndex={0}
+                >
                     Log In
                 </span>
             </p>

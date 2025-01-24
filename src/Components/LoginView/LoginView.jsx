@@ -1,12 +1,14 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom"; // Import useNavigate
 import { Form, Button, Alert, Spinner, Container } from "react-bootstrap";
 import "./LoginView.css";
 
-const LoginView = ({ onLoggedIn, onSignupClicked }) => {
+const LoginView = ({ onLoggedIn }) => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");
     const [loading, setLoading] = useState(false);
+    const navigate = useNavigate(); // Initialize navigate
 
     const handleLogin = async (event) => {
         event.preventDefault();
@@ -71,7 +73,11 @@ const LoginView = ({ onLoggedIn, onSignupClicked }) => {
             </Form>
             <p className="text-center mt-3">
                 Don't have an account?{" "}
-                <span onClick={onSignupClicked} className="toggle-link" tabIndex={0}>
+                <span
+                    onClick={() => navigate("/signup")} // Navigate to signup page
+                    className="toggle-link"
+                    tabIndex={0}
+                >
                     Sign Up
                 </span>
             </p>
