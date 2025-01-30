@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import MovieCard from '../MovieCard/MovieCard';  // Import the MovieCard component
 import './ProfileView.css';
 
 const API_URL = "https://amy-flix-movie-app-ce4aa0da3eb4.herokuapp.com";
@@ -12,52 +13,73 @@ const ProfileView = () => {
         email: '',
         birthday: '',
     });
+    const [movies, setMovies] = useState([]); // Store all movies
+    const [favoriteMovies, setFavoriteMovies] = useState([]); // Store filtered favorite movies
 
     useEffect(() => {
         // Fetch logged-in user data
         axios.get(`${API_URL}/users/me`, {
             headers: { Authorization: `Bearer ${token}` }
         })
-        .then(response => {
-            setUser(response.data);
-            setNewUserData({
-                name: response.data.name || '',
-                email: response.data.email || '',
-                birthday: response.data.birthday || '',
+            .then(response => {
+                setUser(response.data);
+                setNewUserData({
+                    name: response.data.name || '',
+                    email: response.data.email || '',
+                    birthday: response.data.birthday || '',
+                });
+
+                // Filter favorite movies based on user's favorite movie IDs
+                if (response.data.favorite_movies && movies.length > 0) {
+                    const favoriteMoviesList = movies.filter(m =>
+                        response.data.favorite_movies.includes(m._id)
+                    );
+                    setFavoriteMovies(favoriteMoviesList);
+                }
+            })
+            .catch(error => {
+                console.error("Error fetching user data", error);
             });
+
+        // Fetch all movies
+        axios.get(`${API_URL}/movies`, {
+            headers: { Authorization: `Bearer ${token}` }
         })
-        .catch(error => {
-            console.error("Error fetching user data", error);
-        });
-    }, []);
+            .then(response => {
+                setMovies(response.data);  // Store all movies
+            })
+            .catch(error => {
+                console.error("Error fetching movies data", error);
+            });
+    }, [movies.length]);  // Depend on the movies state to re-fetch
 
     const handleUpdateProfile = (e) => {
         e.preventDefault();
         axios.put(`${API_URL}/users/${user.username}`, newUserData, {
             headers: { Authorization: `Bearer ${token}` }
         })
-        .then(response => {
-            setUser(response.data);
-            alert("Profile updated successfully!");
-        })
-        .catch(error => {
-            console.error("Error updating profile", error);
-            alert("Failed to update profile.");
-        });
+            .then(response => {
+                setUser(response.data);
+                alert("Profile updated successfully!");
+            })
+            .catch(error => {
+                console.error("Error updating profile", error);
+                alert("Failed to update profile.");
+            });
     };
 
     const handleDeleteProfile = () => {
         axios.delete(`${API_URL}/users/${user.username}`, {
             headers: { Authorization: `Bearer ${token}` }
         })
-        .then(() => {
-            alert("Profile deleted successfully");
-            localStorage.clear();
-            window.location.href = "/signup";
-        })
-        .catch(error => {
-            console.error("Error deleting profile", error);
-        });
+            .then(() => {
+                alert("Profile deleted successfully");
+                localStorage.clear();
+                window.location.href = "/signup";
+            })
+            .catch(error => {
+                console.error("Error deleting profile", error);
+            });
     };
 
     const handleChange = (e) => {
@@ -98,6 +120,21 @@ const ProfileView = () => {
                     <button type="submit">Save Changes</button>
                 </form>
             </div>
+
+            {/* Display Favorite Movies */}
+            <div className="favorite-movies-container">
+                <h2>Your Favorite Movies</h2>
+                <div className="favorite-movies-list">
+                    {favoriteMovies.length > 0 ? (
+                        favoriteMovies.map(movie => (
+                            <MovieCard key={movie._id} movie={movie} />
+                        ))
+                    ) : (
+                        <p>You have no favorite movies yet.</p>
+                    )}
+                </div>
+            </div>
+
         </div>
     );
 };
