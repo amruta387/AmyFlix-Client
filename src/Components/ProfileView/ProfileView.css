@@ -1,0 +1,60 @@
+/* Scope styles to ProfileView only */
+.profile-container {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* Profile Box (User Info & Update Form) */
+.profile-container .profile-box {
+    width: 45%;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background: #f9f9f9;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Title Styling */
+.profile-container .profile-box h2 {
+    text-align: center;
+}
+
+/* Form Styling */
+.profile-container .profile-box form {
+    display: flex;
+    flex-direction: column;
+}
+
+.profile-container .profile-box input {
+    margin: 10px 0;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Buttons */
+.profile-container button {
+    background: #007bff;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.profile-container button:hover {
+    background: #0056b3;
+}
+
+/* Delete Button */
+.profile-container .delete-button {
+    background: red;
+}
+
+.profile-container .delete-button:hover {
+    background: darkred;
+}

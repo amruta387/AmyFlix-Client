@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import NavBarView from "../NavBarView/NavBarView";
+import ProfileView from "../ProfileView/ProfileView";
 import MovieCard from "../MovieCard/MovieCard";
 import MovieView from "../MovieView/MovieView";
 import LoginView from "../LoginView/LoginView";
@@ -82,7 +83,7 @@ const MainView = () => {
                     <>
                         <Route path="/" element={renderMovieList()} />
                         <Route path="/movie/:id" element={<MovieView />} />
-                        <Route path="/profile" element={<div>Profile Page (Coming Soon)</div>} />
+                        <Route path="/profile" element={<ProfileView />} />
                     </>
                 )}
             </Routes>

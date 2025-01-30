@@ -1,30 +1,35 @@
-
+/* Adjusting the size of the login container */
 .login-view-container {
-    max-width: 400px;
-    margin: 0 auto;
+    width: 100%;
+    max-width: 350px; /* Reduce the width to make it more compact */
+    margin: 50px auto; /* Center the form with some spacing from the top */
     padding: 20px;
     background-color: #f9f9f9;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
+/* Title Styling */
 .login-view-container h2 {
     text-align: center;
     margin-bottom: 20px;
 }
 
+/* Form styling */
 .login-view-container form {
     display: flex;
     flex-direction: column;
 }
 
+/* Input fields */
 .login-view-container input {
     padding: 10px;
-    margin-bottom: 10px;
+    margin-bottom: 15px; /* Slightly more margin between fields */
     border: 1px solid #ccc;
     border-radius: 4px;
 }
 
+/* Button styling */
 .login-view-container button {
     padding: 10px;
     background-color: #007bff;
@@ -38,6 +43,7 @@
     background-color: #0056b3;
 }
 
+/* Error message styling */
 .error-message {
     color: red;
     font-size: 14px;
@@ -45,6 +51,7 @@
     margin-bottom: 10px;
 }
 
+/* Signup prompt and link styling */
 .signup-prompt {
     text-align: center;
     margin-top: 15px;
