@@ -38,7 +38,6 @@ const ProfileView = () => {
                 localStorage.setItem("user", JSON.stringify(response.data));
             })
             .catch(error => console.error("Error fetching user data:", error));
-
     }, []);  
 
     useEffect(() => {
@@ -46,6 +45,28 @@ const ProfileView = () => {
             setFavoriteMovies(movies.filter(m => user.favorite_movies.includes(m._id)));
         }
     }, [user, movies]);  
+
+    const handleRemoveFromFavorites = async (movieId) => {
+        if (!user) return;
+
+        try {
+            await axios.delete(`${API_URL}/users/${user.username}/movies/${movieId}`, {
+                headers: { Authorization: `Bearer ${token}` },
+            });
+
+            const updatedUser = {
+                ...user,
+                favorite_movies: user.favorite_movies.filter(id => id !== movieId)
+            };
+
+            setUser(updatedUser);
+            setFavoriteMovies(favoriteMovies.filter(movie => movie._id !== movieId));
+            localStorage.setItem("user", JSON.stringify(updatedUser));
+        } catch (error) {
+            console.error("Error removing from favorites:", error);
+            alert("Failed to remove movie from favorites.");
+        }
+    };
 
     const handleUpdateProfile = (e) => {
         e.preventDefault();
@@ -117,7 +138,12 @@ const ProfileView = () => {
                 <div className="favorite-movies-list">
                     {favoriteMovies.length > 0 ? (
                         favoriteMovies.map(movie => (
-                            <MovieCard key={movie._id} movie={movie} user={user} setUser={setUser} />
+                            <div key={movie._id} className="favorite-movie-card">
+                                <MovieCard movie={movie} user={user} isInProfileView={true} showFavoriteButton={false} />
+                                <button className="btn btn-danger w-100 mt-2" onClick={() => handleRemoveFromFavorites(movie._id)}>
+                                    Remove from Favorites
+                                </button>
+                            </div>
                         ))
                     ) : (
                         <p>You have no favorite movies yet.</p>

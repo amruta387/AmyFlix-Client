@@ -7,7 +7,7 @@ import "./MovieCard.css";
 
 const API_URL = "https://amy-flix-movie-app-ce4aa0da3eb4.herokuapp.com";
 
-const MovieCard = ({ movie, user, showFavoriteButton = true }) => {
+const MovieCard = ({ movie, user, showFavoriteButton = true, isInProfileView = false }) => {
     const [isFavorite, setIsFavorite] = useState(false);
 
     useEffect(() => {
@@ -83,9 +83,14 @@ const MovieCard = ({ movie, user, showFavoriteButton = true }) => {
             <Card.Body className="d-flex flex-column">
                 <Card.Title className="text-center">{movie.title}</Card.Title>
                 <div className="mt-auto">
-                    <Link to={`/movie/${movie.id}`} className="btn btn-primary w-100">
-                        View Details
-                    </Link>
+                    {/* Only show "View Details" button if not in ProfileView */}
+                    {!isInProfileView && (
+                        <Link to={`/movie/${movie.id}`} className="btn btn-primary w-100">
+                            View Details
+                        </Link>
+                    )}
+
+                    {/* Show Add to Favorites or Remove from Favorites button */}
                     {showFavoriteButton && (
                         isFavorite ? (
                             <button className="btn btn-danger w-100 mt-2" onClick={removeFromFavorites}>
@@ -115,7 +120,8 @@ MovieCard.propTypes = {
         username: PropTypes.string.isRequired,
         favorite_movies: PropTypes.array.isRequired,
     }).isRequired,
-    showFavoriteButton: PropTypes.bool
+    showFavoriteButton: PropTypes.bool,
+    isInProfileView: PropTypes.bool // Prop to control the visibility of "View Details" button
 };
 
 export default MovieCard;

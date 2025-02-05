@@ -158,6 +158,58 @@
   font-size: 18px;
 }
 
+.profile-container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 20px;
+}
+
+.profile-box {
+  background-color: #fff;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  padding: 20px;
+  box-shadow: 0 4px 8px #0000001a;
+}
+
+.profile-box h2 {
+  margin-bottom: 10px;
+  font-size: 1.5rem;
+}
+
+.favorite-movies-container {
+  margin-top: 20px;
+}
+
+.favorite-movies-list {
+  flex-wrap: wrap;
+  gap: 20px;
+  display: flex;
+}
+
+.favorite-movie-card {
+  width: calc(33% - 20px);
+  margin-bottom: 20px;
+}
+
+.favorite-movie-card .btn {
+  width: 100%;
+  margin-top: 10px;
+}
+
+.delete-button {
+  color: #fff;
+  cursor: pointer;
+  background-color: red;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+}
+
+.delete-button:hover {
+  background-color: #8b0000;
+}
+
 .movie-view-container {
   text-align: center;
   flex-direction: column;

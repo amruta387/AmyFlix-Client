@@ -15,7 +15,6 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-
 .movie-card h3 {
     margin: 0;
     font-size: 1.2rem;
@@ -32,7 +31,6 @@
     font-size: 1rem;
     color: #777;
 }
-
 
 .movie-card.selected {
     border-color: #007bff;
