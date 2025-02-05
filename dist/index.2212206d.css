@@ -355,18 +355,19 @@ h1 {
 }
 
 .login-view-container {
-  background-color: #f9f9f9;
-  border-radius: 8px;
-  width: 100%;
-  max-width: 350px;
-  margin: 50px auto;
-  padding: 20px;
-  box-shadow: 0 4px 8px #0000001a;
+  background-color: #f9f9f9 !important;
+  border-radius: 8px !important;
+  width: 100% !important;
+  max-width: 550px !important;
+  margin: 50px auto !important;
+  padding: 20px !important;
+  box-shadow: 0 4px 8px #0000001a !important;
 }
 
 .login-view-container h2 {
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
+  font-size: 20px;
 }
 
 .login-view-container form {
@@ -377,8 +378,9 @@ h1 {
 .login-view-container input {
   border: 1px solid #ccc;
   border-radius: 4px;
-  margin-bottom: 15px;
-  padding: 10px;
+  margin-bottom: 12px;
+  padding: 8px;
+  font-size: 14px;
 }
 
 .login-view-container button {
@@ -387,7 +389,8 @@ h1 {
   background-color: #007bff;
   border: none;
   border-radius: 4px;
-  padding: 10px;
+  padding: 8px;
+  font-size: 14px;
 }
 
 .login-view-container button:hover {
@@ -397,15 +400,15 @@ h1 {
 .error-message {
   color: red;
   text-align: center;
-  margin-bottom: 10px;
-  font-size: 14px;
+  margin-bottom: 8px;
+  font-size: 13px;
 }
 
 .signup-prompt {
   text-align: center;
   color: #333;
-  margin-top: 15px;
-  font-size: 14px;
+  margin-top: 12px;
+  font-size: 13px;
 }
 
 .signup-link {
@@ -419,13 +422,13 @@ h1 {
 }
 
 .signup-view-container {
-  text-align: center;
-  background-color: #fff;
-  border-radius: 8px;
-  max-width: 400px;
-  margin: 50px auto;
-  padding: 20px;
-  box-shadow: 0 4px 8px #0000001a;
+  text-align: center !important;
+  background-color: #fff !important;
+  border-radius: 8px !important;
+  max-width: 550px !important;
+  margin: 50px auto !important;
+  padding: 20px !important;
+  box-shadow: 0 4px 8px #0000001a !important;
 }
 
 .signup-view-container h2 {
