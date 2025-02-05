@@ -1,3 +1,4 @@
+/* Styling for the Movie Card container */
 .movie-card {
     cursor: pointer;
     margin: 10px;
@@ -8,40 +9,99 @@
     transition: transform 0.3s ease, box-shadow 0.1s;
     text-align: center;
     background-color: white;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
 
+/* Hover effect for the Movie Card */
 .movie-card:hover {
     transform: scale(1.05);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
+/* Styling for the movie poster */
+.movie-card .movie-poster {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 8px;
+}
 
+/* Movie title styling */
 .movie-card h3 {
     margin: 0;
     font-size: 1.2rem;
     color: #333;
 }
 
+/* Styling for the movie title under the poster */
 .movie-card .movie-title {
     font-size: 1.2rem;
     margin-top: 10px;
     color: #333;
 }
 
+/* Genre styling for movie cards */
 .movie-card .movie-genre {
     font-size: 1rem;
     color: #777;
 }
 
+/* Add/Remove favorite button styling */
+.movie-card .btn {
+    margin-top: 10px;
+}
 
+/* Specific class for selected movie card (highlighted with border) */
 .movie-card.selected {
     border-color: #007bff;
     box-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
 }
 
-.movie-card img {
-    width: 100%;
-    height: 300px;
-    object-fit: cover;
-    border-radius: 8px;
+/* Movie Card when shown inside Profile View (adjustments) */
+.movie-card.is-in-profile-view {
+    background-color: #f9f9f9;  /* Light background to distinguish from other views */
+}
+
+/* Button style adjustments */
+.movie-card .btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+.movie-card .btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #004085;
+}
+
+.movie-card .btn-danger {
+    background-color: #dc3545;
+    border-color: #dc3545;
+}
+
+.movie-card .btn-danger:hover {
+    background-color: #c82333;
+    border-color: #bd2130;
+}
+
+.movie-card .btn-success {
+    background-color: #28a745;
+    border-color: #28a745;
+}
+
+.movie-card .btn-success:hover {
+    background-color: #218838;
+    border-color: #1e7e34;
+}
+
+/* Adjustments for buttons on smaller screens */
+@media (max-width: 576px) {
+    .movie-card {
+        padding: 8px;
+    }
+
+    .movie-card .btn {
+        font-size: 0.9rem;
+    }
 }
