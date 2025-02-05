@@ -74,6 +74,90 @@
   height: 300px;
 }
 
+.profile-container {
+  flex-wrap: wrap;
+  justify-content: space-around;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+  display: flex;
+}
+
+.profile-container .profile-box {
+  background: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  width: 45%;
+  padding: 20px;
+  box-shadow: 2px 2px 10px #0000001a;
+}
+
+.profile-container .profile-box h2 {
+  text-align: center;
+}
+
+.profile-container .profile-box form {
+  flex-direction: column;
+  display: flex;
+}
+
+.profile-container .profile-box input {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin: 10px 0;
+  padding: 8px;
+}
+
+.profile-container button {
+  color: #fff;
+  cursor: pointer;
+  background: #007bff;
+  border: none;
+  border-radius: 5px;
+  margin-top: 10px;
+  padding: 10px;
+}
+
+.profile-container button:hover {
+  background: #0056b3;
+}
+
+.profile-container .delete-button {
+  background: red;
+}
+
+.profile-container .delete-button:hover {
+  background: #8b0000;
+}
+
+.favorite-movies-container {
+  background: #f9f9f9;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 1200px;
+  margin-top: 40px;
+  padding: 20px;
+  box-shadow: 2px 2px 10px #0000001a;
+}
+
+.favorite-movies-container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.favorite-movies-list {
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  display: flex;
+}
+
+.favorite-movies-list p {
+  text-align: center;
+  color: #888;
+  font-size: 18px;
+}
+
 .movie-view-container {
   text-align: center;
   flex-direction: column;
@@ -399,90 +483,6 @@ h1 {
 
 .signup-button:hover {
   background-color: #388e3c;
-}
-
-.profile-container {
-  flex-wrap: wrap;
-  justify-content: space-around;
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 20px;
-  display: flex;
-}
-
-.profile-container .profile-box {
-  background: #f9f9f9;
-  border: 1px solid #ddd;
-  border-radius: 10px;
-  width: 45%;
-  padding: 20px;
-  box-shadow: 2px 2px 10px #0000001a;
-}
-
-.profile-container .profile-box h2 {
-  text-align: center;
-}
-
-.profile-container .profile-box form {
-  flex-direction: column;
-  display: flex;
-}
-
-.profile-container .profile-box input {
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  margin: 10px 0;
-  padding: 8px;
-}
-
-.profile-container button {
-  color: #fff;
-  cursor: pointer;
-  background: #007bff;
-  border: none;
-  border-radius: 5px;
-  margin-top: 10px;
-  padding: 10px;
-}
-
-.profile-container button:hover {
-  background: #0056b3;
-}
-
-.profile-container .delete-button {
-  background: red;
-}
-
-.profile-container .delete-button:hover {
-  background: #8b0000;
-}
-
-.favorite-movies-container {
-  background: #f9f9f9;
-  border-radius: 10px;
-  width: 100%;
-  max-width: 1200px;
-  margin-top: 40px;
-  padding: 20px;
-  box-shadow: 2px 2px 10px #0000001a;
-}
-
-.favorite-movies-container h2 {
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-.favorite-movies-list {
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
-  display: flex;
-}
-
-.favorite-movies-list p {
-  text-align: center;
-  color: #888;
-  font-size: 18px;
 }
 
 :root, [data-bs-theme="light"] {

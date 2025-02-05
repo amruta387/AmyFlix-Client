@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom"; // Import useNavigate
+import { useNavigate } from "react-router-dom";
 import { Form, Button, Alert, Spinner, Container } from "react-bootstrap";
 import "./LoginView.css";
 
@@ -8,7 +8,7 @@ const LoginView = ({ onLoggedIn }) => {
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");
     const [loading, setLoading] = useState(false);
-    const navigate = useNavigate(); // Initialize navigate
+    const navigate = useNavigate();
 
     const handleLogin = async (event) => {
         event.preventDefault();
@@ -25,9 +25,18 @@ const LoginView = ({ onLoggedIn }) => {
                 }
             );
             const data = await response.json();
+            
             if (data.token) {
+                // Create a complete user object with favorite movies
+                const userObject = {
+                    username: username,
+                    token: data.token,
+                    favorite_movies: data.user?.favorite_movies || []
+                };
+
                 localStorage.setItem("token", data.token);
-                onLoggedIn(data);
+                localStorage.setItem("user", JSON.stringify(userObject));
+                onLoggedIn(userObject);
             } else {
                 setError("Invalid credentials. Please try again.");
             }
@@ -74,7 +83,7 @@ const LoginView = ({ onLoggedIn }) => {
             <p className="text-center mt-3">
                 Don't have an account?{" "}
                 <span
-                    onClick={() => navigate("/signup")} // Navigate to signup page
+                    onClick={() => navigate("/signup")}
                     className="toggle-link"
                     tabIndex={0}
                 >

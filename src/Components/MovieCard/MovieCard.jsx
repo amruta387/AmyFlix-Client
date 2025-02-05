@@ -2,38 +2,44 @@ import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import { Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import axios from "axios"; // Import axios for API requests
+import axios from "axios";
 import "./MovieCard.css";
 
-const MovieCard = ({ movie, user }) => {
+const API_URL = "https://amy-flix-movie-app-ce4aa0da3eb4.herokuapp.com";
+
+const MovieCard = ({ movie, user, showFavoriteButton = true }) => {
     const [isFavorite, setIsFavorite] = useState(false);
 
     useEffect(() => {
-        // Check if the movie is in the user's favorites
-        if (user && user.favorite_movies) {
+        if (user?.favorite_movies) {
             setIsFavorite(user.favorite_movies.includes(movie.id));
         }
-    }, [movie.id, user]);
-
-    const API_URL = "https://amy-flix-movie-app-ce4aa0da3eb4.herokuapp.com";
+    }, [user?.favorite_movies, movie.id]);
 
     const addToFavorites = async () => {
-        if (!user) {
-            alert("User is not authenticated!");
+        if (!showFavoriteButton) return;
+
+        const token = localStorage.getItem("token");
+        if (!token) {
+            alert("No authentication token found. Please log in again.");
             return;
         }
 
         try {
-            const response = await axios.post(
+            await axios.post(
                 `${API_URL}/users/${user.username}/movies/${movie.id}`,
                 {},
-                {
-                    headers: {
-                        Authorization: `Bearer ${user.token}`,
-                    },
-                }
+                { headers: { Authorization: `Bearer ${token}` } }
             );
             setIsFavorite(true);
+
+            const currentUser = JSON.parse(localStorage.getItem("user"));
+            const updatedUser = {
+                ...currentUser,
+                favorite_movies: [...currentUser.favorite_movies, movie.id]
+            };
+            localStorage.setItem("user", JSON.stringify(updatedUser));
+
             alert("Movie added to favorites!");
         } catch (error) {
             console.error("Error adding movie to favorites:", error);
@@ -42,21 +48,28 @@ const MovieCard = ({ movie, user }) => {
     };
 
     const removeFromFavorites = async () => {
-        if (!user) {
-            alert("User is not authenticated!");
+        if (!showFavoriteButton) return;
+
+        const token = localStorage.getItem("token");
+        if (!token) {
+            alert("No authentication token found. Please log in again.");
             return;
         }
 
         try {
-            const response = await axios.delete(
+            await axios.delete(
                 `${API_URL}/users/${user.username}/movies/${movie.id}`,
-                {
-                    headers: {
-                        Authorization: `Bearer ${user.token}`,
-                    },
-                }
+                { headers: { Authorization: `Bearer ${token}` } }
             );
             setIsFavorite(false);
+
+            const currentUser = JSON.parse(localStorage.getItem("user"));
+            const updatedUser = {
+                ...currentUser,
+                favorite_movies: currentUser.favorite_movies.filter(id => id !== movie.id)
+            };
+            localStorage.setItem("user", JSON.stringify(updatedUser));
+
             alert("Movie removed from favorites.");
         } catch (error) {
             console.error("Error removing movie from favorites:", error);
@@ -66,32 +79,23 @@ const MovieCard = ({ movie, user }) => {
 
     return (
         <Card className="movie-card h-100 shadow-sm">
-            <Card.Img
-                variant="top"
-                src={movie.poster}
-                alt={`${movie.title} poster`}
-                className="movie-poster"
-            />
+            <Card.Img variant="top" src={movie.poster} alt={`${movie.title} poster`} className="movie-poster" />
             <Card.Body className="d-flex flex-column">
                 <Card.Title className="text-center">{movie.title}</Card.Title>
                 <div className="mt-auto">
                     <Link to={`/movie/${movie.id}`} className="btn btn-primary w-100">
                         View Details
                     </Link>
-                    {isFavorite ? (
-                        <button
-                            className="btn btn-danger w-100 mt-2"
-                            onClick={removeFromFavorites}
-                        >
-                            Remove from Favorites
-                        </button>
-                    ) : (
-                        <button
-                            className="btn btn-success w-100 mt-2"
-                            onClick={addToFavorites}
-                        >
-                            Add to Favorites
-                        </button>
+                    {showFavoriteButton && (
+                        isFavorite ? (
+                            <button className="btn btn-danger w-100 mt-2" onClick={removeFromFavorites}>
+                                Remove from Favorites
+                            </button>
+                        ) : (
+                            <button className="btn btn-success w-100 mt-2" onClick={addToFavorites}>
+                                Add to Favorites
+                            </button>
+                        )
                     )}
                 </div>
             </Card.Body>
@@ -109,9 +113,9 @@ MovieCard.propTypes = {
     }).isRequired,
     user: PropTypes.shape({
         username: PropTypes.string.isRequired,
-        token: PropTypes.string.isRequired,
         favorite_movies: PropTypes.array.isRequired,
     }).isRequired,
+    showFavoriteButton: PropTypes.bool
 };
 
 export default MovieCard;
