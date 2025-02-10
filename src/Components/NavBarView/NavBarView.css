@@ -1,0 +1,29 @@
+.custom-navbar {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 1.5rem;
+}
+
+.custom-navbar .navbar-brand {
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.custom-navbar .nav-link {
+    font-size: 1rem;
+    color: #f8f9fa;
+}
+
+.custom-navbar .nav-link:hover {
+    color: #adb5bd;
+}
+
+.custom-navbar .btn-outline-danger {
+    font-size: 0.9rem;
+    color: #ff6b6b;
+    border-color: #ff6b6b;
+}
+
+.custom-navbar .btn-outline-danger:hover {
+    background-color: #ff6b6b;
+    color: #fff;
+}
