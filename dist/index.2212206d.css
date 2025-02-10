@@ -1,3 +1,375 @@
+.movie-card {
+  cursor: pointer;
+  text-align: center;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  margin: 10px;
+  padding: 10px;
+  transition: transform .3s, box-shadow .1s;
+  box-shadow: 0 4px 8px #0000001a;
+}
+
+.movie-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px #0003;
+}
+
+.movie-card h3 {
+  color: #333;
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.movie-card .movie-title {
+  color: #333;
+  margin-top: 10px;
+  font-size: 1.2rem;
+}
+
+.movie-card .movie-genre {
+  color: #777;
+  font-size: 1rem;
+}
+
+.movie-card.selected {
+  border-color: #007bff;
+  box-shadow: 0 0 10px #007bff80;
+}
+
+.movie-card img {
+  object-fit: cover;
+  border-radius: 8px;
+  width: 100%;
+  height: 300px;
+}
+
+.movie-view-container {
+  text-align: center;
+  flex-direction: column;
+  align-items: center;
+  display: flex;
+}
+
+.movie-view-container h2, h1 {
+  color: #333;
+  margin-bottom: 20px;
+  font-size: 2rem;
+}
+
+h1 {
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
+.movie-details {
+  text-align: left;
+  max-width: 500px;
+  margin: 0 auto;
+  padding-left: 20px;
+  list-style-type: disc;
+}
+
+.movie-details li {
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+.movie-details li strong {
+  font-weight: bold;
+}
+
+.movie-view {
+  text-align: center;
+  background-color: #f9f9f9;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+}
+
+.movie-view img {
+  border-radius: 10px;
+  width: 200px;
+  margin: 20px 0;
+}
+
+.movie-view p {
+  color: #555;
+  margin: 10px 0;
+  font-size: 1rem;
+}
+
+.movie-view strong {
+  color: #333;
+}
+
+.movie-view button, .movie-view-container .back-button {
+  color: #fff;
+  cursor: pointer;
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  transition: background-color .3s;
+}
+
+.movie-view button:hover, .movie-view-container .back-button:hover {
+  background-color: #0056b3;
+}
+
+.movie-view-container .similar-movies-heading {
+  color: #333;
+  margin-top: 40px;
+  font-size: 1.5rem;
+}
+
+.login-view-container {
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  box-shadow: 0 4px 8px #0000001a;
+}
+
+.login-view-container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.login-view-container form {
+  flex-direction: column;
+  display: flex;
+}
+
+.login-view-container input {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 10px;
+  padding: 10px;
+}
+
+.login-view-container button {
+  color: #fff;
+  cursor: pointer;
+  background-color: #007bff;
+  border: none;
+  border-radius: 4px;
+  padding: 10px;
+}
+
+.login-view-container button:hover {
+  background-color: #0056b3;
+}
+
+.error-message {
+  color: red;
+  text-align: center;
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+.signup-prompt {
+  text-align: center;
+  color: #333;
+  margin-top: 15px;
+  font-size: 14px;
+}
+
+.signup-link {
+  color: #007bff;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.signup-link:hover {
+  color: #0056b3;
+}
+
+.signup-view-container {
+  text-align: center;
+  background-color: #fff;
+  border-radius: 8px;
+  max-width: 400px;
+  margin: 50px auto;
+  padding: 20px;
+  box-shadow: 0 4px 8px #0000001a;
+}
+
+.signup-view-container h2 {
+  color: #333;
+  margin-bottom: 20px;
+  font-size: 2rem;
+}
+
+.signup-form {
+  flex-direction: column;
+  gap: 15px;
+  display: flex;
+}
+
+.form-group {
+  text-align: left;
+  flex-direction: column;
+  display: flex;
+}
+
+.form-group label {
+  color: #555;
+  margin-bottom: 5px;
+  font-size: 1rem;
+}
+
+.form-group input {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 1rem;
+}
+
+.form-group input:focus {
+  border-color: #007bff;
+  outline: none;
+  box-shadow: 0 0 5px #007bff80;
+}
+
+.signup-button {
+  color: #fff;
+  cursor: pointer;
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 1rem;
+  transition: background-color .3s;
+}
+
+.toggle-form {
+  color: #555;
+  margin-top: 20px;
+  font-size: .9rem;
+}
+
+.toggle-link {
+  color: #007bff;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.toggle-link:hover {
+  color: #0056b3;
+}
+
+.signup-view-container .form-group {
+  margin-bottom: 15px;
+}
+
+.signup-view-container .form-label {
+  text-align: left;
+  margin-bottom: 5px;
+}
+
+.main-view-container {
+  background-color: #f4f4f9;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.main-view-header {
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  display: flex;
+}
+
+.main-view-header h1 {
+  color: #333;
+  font-size: 2rem;
+}
+
+.logout-button {
+  color: #fff;
+  cursor: pointer;
+  background-color: #f44336;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+}
+
+.logout-button:hover {
+  background-color: #d32f2f;
+}
+
+.movies-grid {
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+  padding: 20px;
+  display: grid;
+}
+
+.similar-movies-heading {
+  color: #333;
+  margin-top: 40px;
+  font-size: 1.5rem;
+}
+
+.similar-movies-grid {
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+  padding: 20px;
+  display: grid;
+}
+
+.auth-container {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.auth-container h1 {
+  color: #333;
+  font-size: 2.5rem;
+}
+
+.auth-container p {
+  color: #555;
+  margin-bottom: 20px;
+  font-size: 1.2rem;
+}
+
+.auth-buttons {
+  justify-content: center;
+  gap: 15px;
+  margin-top: 20px;
+  display: flex;
+}
+
+.auth-button {
+  color: #fff;
+  cursor: pointer;
+  background-color: #2196f3;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  transition: background-color .3s;
+}
+
+.auth-button:hover {
+  background-color: #1976d2;
+}
+
+.signup-button {
+  background-color: #4caf50;
+}
+
+.signup-button:hover {
+  background-color: #388e3c;
+}
+
 :root, [data-bs-theme="light"] {
   --bs-blue: #0d6efd;
   --bs-indigo: #6610f2;
@@ -13157,377 +13529,5 @@ textarea.form-control-lg {
 
 .amy-flix {
   color: #4682b4;
-}
-
-.main-view-container {
-  background-color: #f4f4f9;
-  min-height: 100vh;
-  padding: 20px;
-}
-
-.main-view-header {
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 20px;
-  display: flex;
-}
-
-.main-view-header h1 {
-  color: #333;
-  font-size: 2rem;
-}
-
-.logout-button {
-  color: #fff;
-  cursor: pointer;
-  background-color: #f44336;
-  border: none;
-  border-radius: 5px;
-  padding: 10px 20px;
-}
-
-.logout-button:hover {
-  background-color: #d32f2f;
-}
-
-.movies-grid {
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 20px;
-  padding: 20px;
-  display: grid;
-}
-
-.similar-movies-heading {
-  color: #333;
-  margin-top: 40px;
-  font-size: 1.5rem;
-}
-
-.similar-movies-grid {
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 20px;
-  padding: 20px;
-  display: grid;
-}
-
-.auth-container {
-  text-align: center;
-  margin-top: 50px;
-}
-
-.auth-container h1 {
-  color: #333;
-  font-size: 2.5rem;
-}
-
-.auth-container p {
-  color: #555;
-  margin-bottom: 20px;
-  font-size: 1.2rem;
-}
-
-.auth-buttons {
-  justify-content: center;
-  gap: 15px;
-  margin-top: 20px;
-  display: flex;
-}
-
-.auth-button {
-  color: #fff;
-  cursor: pointer;
-  background-color: #2196f3;
-  border: none;
-  border-radius: 5px;
-  padding: 10px 20px;
-  font-size: 1rem;
-  transition: background-color .3s;
-}
-
-.auth-button:hover {
-  background-color: #1976d2;
-}
-
-.signup-button {
-  background-color: #4caf50;
-}
-
-.movie-card {
-  cursor: pointer;
-  text-align: center;
-  background-color: #fff;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  margin: 10px;
-  padding: 10px;
-  transition: transform .3s, box-shadow .1s;
-  box-shadow: 0 4px 8px #0000001a;
-}
-
-.movie-card:hover {
-  transform: scale(1.05);
-  box-shadow: 0 4px 8px #0003;
-}
-
-.movie-card h3 {
-  color: #333;
-  margin: 0;
-  font-size: 1.2rem;
-}
-
-.movie-card .movie-title {
-  color: #333;
-  margin-top: 10px;
-  font-size: 1.2rem;
-}
-
-.movie-card .movie-genre {
-  color: #777;
-  font-size: 1rem;
-}
-
-.movie-card.selected {
-  border-color: #007bff;
-  box-shadow: 0 0 10px #007bff80;
-}
-
-.movie-card img {
-  object-fit: cover;
-  border-radius: 8px;
-  width: 100%;
-  height: 300px;
-}
-
-.movie-view-container {
-  text-align: center;
-  flex-direction: column;
-  align-items: center;
-  display: flex;
-}
-
-.movie-view-container h2, h1 {
-  color: #333;
-  margin-bottom: 20px;
-  font-size: 2rem;
-}
-
-h1 {
-  font-size: 2.5rem;
-  font-weight: bold;
-}
-
-.movie-details {
-  text-align: left;
-  max-width: 500px;
-  margin: 0 auto;
-  padding-left: 20px;
-  list-style-type: disc;
-}
-
-.movie-details li {
-  margin-bottom: 10px;
-  font-size: 16px;
-}
-
-.movie-details li strong {
-  font-weight: bold;
-}
-
-.movie-view {
-  text-align: center;
-  background-color: #f9f9f9;
-  border: 1px solid #ccc;
-  border-radius: 10px;
-  max-width: 600px;
-  margin: 20px auto;
-  padding: 20px;
-}
-
-.movie-view img {
-  border-radius: 10px;
-  width: 200px;
-  margin: 20px 0;
-}
-
-.movie-view p {
-  color: #555;
-  margin: 10px 0;
-  font-size: 1rem;
-}
-
-.movie-view strong {
-  color: #333;
-}
-
-.movie-view button, .movie-view-container .back-button {
-  color: #fff;
-  cursor: pointer;
-  background-color: #007bff;
-  border: none;
-  border-radius: 5px;
-  margin-top: 20px;
-  padding: 10px 20px;
-  font-size: 1rem;
-  transition: background-color .3s;
-}
-
-.movie-view button:hover, .movie-view-container .back-button:hover {
-  background-color: #0056b3;
-}
-
-.movie-view-container .similar-movies-heading {
-  color: #333;
-  margin-top: 40px;
-  font-size: 1.5rem;
-}
-
-.login-view-container {
-  background-color: #f9f9f9;
-  border-radius: 8px;
-  max-width: 400px;
-  margin: 0 auto;
-  padding: 20px;
-  box-shadow: 0 4px 8px #0000001a;
-}
-
-.login-view-container h2 {
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-.login-view-container form {
-  flex-direction: column;
-  display: flex;
-}
-
-.login-view-container input {
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  margin-bottom: 10px;
-  padding: 10px;
-}
-
-.login-view-container button {
-  color: #fff;
-  cursor: pointer;
-  background-color: #007bff;
-  border: none;
-  border-radius: 4px;
-  padding: 10px;
-}
-
-.login-view-container button:hover {
-  background-color: #0056b3;
-}
-
-.error-message {
-  color: red;
-  text-align: center;
-  margin-bottom: 10px;
-  font-size: 14px;
-}
-
-.signup-prompt {
-  text-align: center;
-  color: #333;
-  margin-top: 15px;
-  font-size: 14px;
-}
-
-.signup-link {
-  color: #007bff;
-  cursor: pointer;
-  text-decoration: underline;
-}
-
-.signup-link:hover {
-  color: #0056b3;
-}
-
-.signup-view-container {
-  text-align: center;
-  background-color: #fff;
-  border-radius: 8px;
-  max-width: 400px;
-  margin: 50px auto;
-  padding: 20px;
-  box-shadow: 0 4px 8px #0000001a;
-}
-
-.signup-view-container h2 {
-  color: #333;
-  margin-bottom: 20px;
-  font-size: 2rem;
-}
-
-.signup-form {
-  flex-direction: column;
-  gap: 15px;
-  display: flex;
-}
-
-.form-group {
-  text-align: left;
-  flex-direction: column;
-  display: flex;
-}
-
-.form-group label {
-  color: #555;
-  margin-bottom: 5px;
-  font-size: 1rem;
-}
-
-.form-group input {
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  padding: 10px;
-  font-size: 1rem;
-}
-
-.form-group input:focus {
-  border-color: #007bff;
-  outline: none;
-  box-shadow: 0 0 5px #007bff80;
-}
-
-.signup-button {
-  color: #fff;
-  cursor: pointer;
-  background-color: #007bff;
-  border: none;
-  border-radius: 5px;
-  padding: 10px;
-  font-size: 1rem;
-  transition: background-color .3s;
-}
-
-.signup-button:hover {
-  background-color: #0056b3;
-}
-
-.toggle-form {
-  color: #555;
-  margin-top: 20px;
-  font-size: .9rem;
-}
-
-.toggle-link {
-  color: #007bff;
-  cursor: pointer;
-  text-decoration: underline;
-}
-
-.toggle-link:hover {
-  color: #0056b3;
-}
-
-.signup-view-container .form-group {
-  margin-bottom: 15px;
-}
-
-.signup-view-container .form-label {
-  text-align: left;
-  margin-bottom: 5px;
 }
 /*# sourceMappingURL=index.2212206d.css.map */
