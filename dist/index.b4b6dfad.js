@@ -20354,7 +20354,7 @@ function _objectWithoutPropertiesLoose(r, e) {
     if (null == r) return {};
     var t = {};
     for(var n in r)if (({}).hasOwnProperty.call(r, n)) {
-        if (e.includes(n)) continue;
+        if (-1 !== e.indexOf(n)) continue;
         t[n] = r[n];
     }
     return t;
@@ -25402,6 +25402,7 @@ var _noopTransition = require("./NoopTransition");
 var _noopTransitionDefault = parcelHelpers.interopDefault(_noopTransition);
 var _rtgtransition = require("./RTGTransition");
 var _rtgtransitionDefault = parcelHelpers.interopDefault(_rtgtransition);
+var _utils = require("./utils");
 var _jsxRuntime = require("react/jsx-runtime");
 function useTransition({ in: inProp, onTransition }) {
     const ref = (0, _react.useRef)(null);
@@ -25453,7 +25454,7 @@ function ImperativeTransition({ children, in: inProp, onExited, onEntered, trans
             });
         }
     });
-    const combinedRef = (0, _useMergedRefsDefault.default)(ref, children.ref);
+    const combinedRef = (0, _useMergedRefsDefault.default)(ref, (0, _utils.getChildRef)(children));
     return exited && !inProp ? null : /*#__PURE__*/ (0, _react.cloneElement)(children, {
         ref: combinedRef
     });
@@ -25468,7 +25469,7 @@ function renderTransition(component, runTransition, props) {
     return /*#__PURE__*/ (0, _jsxRuntime.jsx)((0, _noopTransitionDefault.default), Object.assign({}, props));
 }
 
-},{"@restart/hooks/useMergedRefs":"1Tfc6","@restart/hooks/useEventCallback":"62akH","@restart/hooks/useIsomorphicEffect":"ckGdv","react":"21dqq","./NoopTransition":"cwnaj","./RTGTransition":"IPK9l","react/jsx-runtime":"6AEwr","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"cwnaj":[function(require,module,exports,__globalThis) {
+},{"@restart/hooks/useMergedRefs":"1Tfc6","@restart/hooks/useEventCallback":"62akH","@restart/hooks/useIsomorphicEffect":"ckGdv","react":"21dqq","./NoopTransition":"cwnaj","./RTGTransition":"IPK9l","react/jsx-runtime":"6AEwr","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./utils":"2Fmci"}],"cwnaj":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _useEventCallback = require("@restart/hooks/useEventCallback");
@@ -25476,6 +25477,7 @@ var _useEventCallbackDefault = parcelHelpers.interopDefault(_useEventCallback);
 var _useMergedRefs = require("@restart/hooks/useMergedRefs");
 var _useMergedRefsDefault = parcelHelpers.interopDefault(_useMergedRefs);
 var _react = require("react");
+var _utils = require("./utils");
 function NoopTransition({ children, in: inProp, onExited, mountOnEnter, unmountOnExit }) {
     const ref = (0, _react.useRef)(null);
     const hasEnteredRef = (0, _react.useRef)(inProp);
@@ -25487,7 +25489,7 @@ function NoopTransition({ children, in: inProp, onExited, mountOnEnter, unmountO
         inProp,
         handleExited
     ]);
-    const combinedRef = (0, _useMergedRefsDefault.default)(ref, children.ref);
+    const combinedRef = (0, _useMergedRefsDefault.default)(ref, (0, _utils.getChildRef)(children));
     const child = /*#__PURE__*/ (0, _react.cloneElement)(children, {
         ref: combinedRef
     });
@@ -25498,7 +25500,7 @@ function NoopTransition({ children, in: inProp, onExited, mountOnEnter, unmountO
 }
 exports.default = NoopTransition;
 
-},{"@restart/hooks/useEventCallback":"62akH","@restart/hooks/useMergedRefs":"1Tfc6","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"IPK9l":[function(require,module,exports,__globalThis) {
+},{"@restart/hooks/useEventCallback":"62akH","@restart/hooks/useMergedRefs":"1Tfc6","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./utils":"2Fmci"}],"IPK9l":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _react = require("react");
@@ -26089,7 +26091,7 @@ module.exports = JSON.parse("{\"name\":\"react-refresh\",\"description\":\"React
 
 },{}],"lyno9":[function(require,module,exports,__globalThis) {
 /**
- * react-router-dom v7.1.3
+ * react-router-dom v7.1.5
  *
  * Copyright (c) Remix Software Inc.
  *
@@ -26108,7 +26110,7 @@ parcelHelpers.exportAll(_reactRouter, exports);
 
 },{"react-router/dom":false,"react-router":"dXVwI","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"dXVwI":[function(require,module,exports,__globalThis) {
 /**
- * react-router v7.1.3
+ * react-router v7.1.5
  *
  * Copyright (c) Remix Software Inc.
  *
@@ -26118,122 +26120,122 @@ parcelHelpers.exportAll(_reactRouter, exports);
  * @license MIT
  */ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "Await", ()=>(0, _chunkSYFQ2XB5Mjs.Await));
-parcelHelpers.export(exports, "BrowserRouter", ()=>(0, _chunkSYFQ2XB5Mjs.BrowserRouter));
-parcelHelpers.export(exports, "Form", ()=>(0, _chunkSYFQ2XB5Mjs.Form));
-parcelHelpers.export(exports, "HashRouter", ()=>(0, _chunkSYFQ2XB5Mjs.HashRouter));
-parcelHelpers.export(exports, "IDLE_BLOCKER", ()=>(0, _chunkSYFQ2XB5Mjs.IDLE_BLOCKER));
-parcelHelpers.export(exports, "IDLE_FETCHER", ()=>(0, _chunkSYFQ2XB5Mjs.IDLE_FETCHER));
-parcelHelpers.export(exports, "IDLE_NAVIGATION", ()=>(0, _chunkSYFQ2XB5Mjs.IDLE_NAVIGATION));
-parcelHelpers.export(exports, "Link", ()=>(0, _chunkSYFQ2XB5Mjs.Link));
-parcelHelpers.export(exports, "Links", ()=>(0, _chunkSYFQ2XB5Mjs.Links));
-parcelHelpers.export(exports, "MemoryRouter", ()=>(0, _chunkSYFQ2XB5Mjs.MemoryRouter));
-parcelHelpers.export(exports, "Meta", ()=>(0, _chunkSYFQ2XB5Mjs.Meta));
-parcelHelpers.export(exports, "NavLink", ()=>(0, _chunkSYFQ2XB5Mjs.NavLink));
-parcelHelpers.export(exports, "Navigate", ()=>(0, _chunkSYFQ2XB5Mjs.Navigate));
-parcelHelpers.export(exports, "NavigationType", ()=>(0, _chunkSYFQ2XB5Mjs.Action));
-parcelHelpers.export(exports, "Outlet", ()=>(0, _chunkSYFQ2XB5Mjs.Outlet));
-parcelHelpers.export(exports, "PrefetchPageLinks", ()=>(0, _chunkSYFQ2XB5Mjs.PrefetchPageLinks));
-parcelHelpers.export(exports, "Route", ()=>(0, _chunkSYFQ2XB5Mjs.Route));
-parcelHelpers.export(exports, "Router", ()=>(0, _chunkSYFQ2XB5Mjs.Router));
-parcelHelpers.export(exports, "RouterProvider", ()=>(0, _chunkSYFQ2XB5Mjs.RouterProvider));
-parcelHelpers.export(exports, "Routes", ()=>(0, _chunkSYFQ2XB5Mjs.Routes));
-parcelHelpers.export(exports, "Scripts", ()=>(0, _chunkSYFQ2XB5Mjs.Scripts));
-parcelHelpers.export(exports, "ScrollRestoration", ()=>(0, _chunkSYFQ2XB5Mjs.ScrollRestoration));
-parcelHelpers.export(exports, "ServerRouter", ()=>(0, _chunkSYFQ2XB5Mjs.ServerRouter));
-parcelHelpers.export(exports, "StaticRouter", ()=>(0, _chunkSYFQ2XB5Mjs.StaticRouter));
-parcelHelpers.export(exports, "StaticRouterProvider", ()=>(0, _chunkSYFQ2XB5Mjs.StaticRouterProvider));
-parcelHelpers.export(exports, "UNSAFE_DataRouterContext", ()=>(0, _chunkSYFQ2XB5Mjs.DataRouterContext));
-parcelHelpers.export(exports, "UNSAFE_DataRouterStateContext", ()=>(0, _chunkSYFQ2XB5Mjs.DataRouterStateContext));
-parcelHelpers.export(exports, "UNSAFE_ErrorResponseImpl", ()=>(0, _chunkSYFQ2XB5Mjs.ErrorResponseImpl));
-parcelHelpers.export(exports, "UNSAFE_FetchersContext", ()=>(0, _chunkSYFQ2XB5Mjs.FetchersContext));
-parcelHelpers.export(exports, "UNSAFE_FrameworkContext", ()=>(0, _chunkSYFQ2XB5Mjs.FrameworkContext));
-parcelHelpers.export(exports, "UNSAFE_LocationContext", ()=>(0, _chunkSYFQ2XB5Mjs.LocationContext));
-parcelHelpers.export(exports, "UNSAFE_NavigationContext", ()=>(0, _chunkSYFQ2XB5Mjs.NavigationContext));
-parcelHelpers.export(exports, "UNSAFE_RemixErrorBoundary", ()=>(0, _chunkSYFQ2XB5Mjs.RemixErrorBoundary));
-parcelHelpers.export(exports, "UNSAFE_RouteContext", ()=>(0, _chunkSYFQ2XB5Mjs.RouteContext));
-parcelHelpers.export(exports, "UNSAFE_ServerMode", ()=>(0, _chunkSYFQ2XB5Mjs.ServerMode));
-parcelHelpers.export(exports, "UNSAFE_SingleFetchRedirectSymbol", ()=>(0, _chunkSYFQ2XB5Mjs.SingleFetchRedirectSymbol));
-parcelHelpers.export(exports, "UNSAFE_ViewTransitionContext", ()=>(0, _chunkSYFQ2XB5Mjs.ViewTransitionContext));
-parcelHelpers.export(exports, "UNSAFE_createBrowserHistory", ()=>(0, _chunkSYFQ2XB5Mjs.createBrowserHistory));
-parcelHelpers.export(exports, "UNSAFE_createClientRoutes", ()=>(0, _chunkSYFQ2XB5Mjs.createClientRoutes));
-parcelHelpers.export(exports, "UNSAFE_createClientRoutesWithHMRRevalidationOptOut", ()=>(0, _chunkSYFQ2XB5Mjs.createClientRoutesWithHMRRevalidationOptOut));
-parcelHelpers.export(exports, "UNSAFE_createRouter", ()=>(0, _chunkSYFQ2XB5Mjs.createRouter));
-parcelHelpers.export(exports, "UNSAFE_decodeViaTurboStream", ()=>(0, _chunkSYFQ2XB5Mjs.decodeViaTurboStream));
-parcelHelpers.export(exports, "UNSAFE_deserializeErrors", ()=>(0, _chunkSYFQ2XB5Mjs.deserializeErrors));
-parcelHelpers.export(exports, "UNSAFE_getPatchRoutesOnNavigationFunction", ()=>(0, _chunkSYFQ2XB5Mjs.getPatchRoutesOnNavigationFunction));
-parcelHelpers.export(exports, "UNSAFE_getSingleFetchDataStrategy", ()=>(0, _chunkSYFQ2XB5Mjs.getSingleFetchDataStrategy));
-parcelHelpers.export(exports, "UNSAFE_invariant", ()=>(0, _chunkSYFQ2XB5Mjs.invariant));
-parcelHelpers.export(exports, "UNSAFE_mapRouteProperties", ()=>(0, _chunkSYFQ2XB5Mjs.mapRouteProperties));
-parcelHelpers.export(exports, "UNSAFE_shouldHydrateRouteLoader", ()=>(0, _chunkSYFQ2XB5Mjs.shouldHydrateRouteLoader));
-parcelHelpers.export(exports, "UNSAFE_useFogOFWarDiscovery", ()=>(0, _chunkSYFQ2XB5Mjs.useFogOFWarDiscovery));
-parcelHelpers.export(exports, "UNSAFE_useScrollRestoration", ()=>(0, _chunkSYFQ2XB5Mjs.useScrollRestoration));
-parcelHelpers.export(exports, "createBrowserRouter", ()=>(0, _chunkSYFQ2XB5Mjs.createBrowserRouter));
-parcelHelpers.export(exports, "createCookie", ()=>(0, _chunkSYFQ2XB5Mjs.createCookie));
-parcelHelpers.export(exports, "createCookieSessionStorage", ()=>(0, _chunkSYFQ2XB5Mjs.createCookieSessionStorage));
-parcelHelpers.export(exports, "createHashRouter", ()=>(0, _chunkSYFQ2XB5Mjs.createHashRouter));
-parcelHelpers.export(exports, "createMemoryRouter", ()=>(0, _chunkSYFQ2XB5Mjs.createMemoryRouter));
-parcelHelpers.export(exports, "createMemorySessionStorage", ()=>(0, _chunkSYFQ2XB5Mjs.createMemorySessionStorage));
-parcelHelpers.export(exports, "createPath", ()=>(0, _chunkSYFQ2XB5Mjs.createPath));
-parcelHelpers.export(exports, "createRequestHandler", ()=>(0, _chunkSYFQ2XB5Mjs.createRequestHandler));
-parcelHelpers.export(exports, "createRoutesFromChildren", ()=>(0, _chunkSYFQ2XB5Mjs.createRoutesFromChildren));
-parcelHelpers.export(exports, "createRoutesFromElements", ()=>(0, _chunkSYFQ2XB5Mjs.createRoutesFromElements));
-parcelHelpers.export(exports, "createRoutesStub", ()=>(0, _chunkSYFQ2XB5Mjs.createRoutesStub));
-parcelHelpers.export(exports, "createSearchParams", ()=>(0, _chunkSYFQ2XB5Mjs.createSearchParams));
-parcelHelpers.export(exports, "createSession", ()=>(0, _chunkSYFQ2XB5Mjs.createSession));
-parcelHelpers.export(exports, "createSessionStorage", ()=>(0, _chunkSYFQ2XB5Mjs.createSessionStorage));
-parcelHelpers.export(exports, "createStaticHandler", ()=>(0, _chunkSYFQ2XB5Mjs.createStaticHandler));
-parcelHelpers.export(exports, "createStaticRouter", ()=>(0, _chunkSYFQ2XB5Mjs.createStaticRouter));
-parcelHelpers.export(exports, "data", ()=>(0, _chunkSYFQ2XB5Mjs.data));
-parcelHelpers.export(exports, "generatePath", ()=>(0, _chunkSYFQ2XB5Mjs.generatePath));
-parcelHelpers.export(exports, "isCookie", ()=>(0, _chunkSYFQ2XB5Mjs.isCookie));
-parcelHelpers.export(exports, "isRouteErrorResponse", ()=>(0, _chunkSYFQ2XB5Mjs.isRouteErrorResponse));
-parcelHelpers.export(exports, "isSession", ()=>(0, _chunkSYFQ2XB5Mjs.isSession));
-parcelHelpers.export(exports, "matchPath", ()=>(0, _chunkSYFQ2XB5Mjs.matchPath));
-parcelHelpers.export(exports, "matchRoutes", ()=>(0, _chunkSYFQ2XB5Mjs.matchRoutes));
-parcelHelpers.export(exports, "parsePath", ()=>(0, _chunkSYFQ2XB5Mjs.parsePath));
-parcelHelpers.export(exports, "redirect", ()=>(0, _chunkSYFQ2XB5Mjs.redirect));
-parcelHelpers.export(exports, "redirectDocument", ()=>(0, _chunkSYFQ2XB5Mjs.redirectDocument));
-parcelHelpers.export(exports, "renderMatches", ()=>(0, _chunkSYFQ2XB5Mjs.renderMatches));
-parcelHelpers.export(exports, "replace", ()=>(0, _chunkSYFQ2XB5Mjs.replace));
-parcelHelpers.export(exports, "resolvePath", ()=>(0, _chunkSYFQ2XB5Mjs.resolvePath));
-parcelHelpers.export(exports, "unstable_HistoryRouter", ()=>(0, _chunkSYFQ2XB5Mjs.HistoryRouter));
-parcelHelpers.export(exports, "unstable_setDevServerHooks", ()=>(0, _chunkSYFQ2XB5Mjs.setDevServerHooks));
-parcelHelpers.export(exports, "unstable_usePrompt", ()=>(0, _chunkSYFQ2XB5Mjs.usePrompt));
-parcelHelpers.export(exports, "useActionData", ()=>(0, _chunkSYFQ2XB5Mjs.useActionData));
-parcelHelpers.export(exports, "useAsyncError", ()=>(0, _chunkSYFQ2XB5Mjs.useAsyncError));
-parcelHelpers.export(exports, "useAsyncValue", ()=>(0, _chunkSYFQ2XB5Mjs.useAsyncValue));
-parcelHelpers.export(exports, "useBeforeUnload", ()=>(0, _chunkSYFQ2XB5Mjs.useBeforeUnload));
-parcelHelpers.export(exports, "useBlocker", ()=>(0, _chunkSYFQ2XB5Mjs.useBlocker));
-parcelHelpers.export(exports, "useFetcher", ()=>(0, _chunkSYFQ2XB5Mjs.useFetcher));
-parcelHelpers.export(exports, "useFetchers", ()=>(0, _chunkSYFQ2XB5Mjs.useFetchers));
-parcelHelpers.export(exports, "useFormAction", ()=>(0, _chunkSYFQ2XB5Mjs.useFormAction));
-parcelHelpers.export(exports, "useHref", ()=>(0, _chunkSYFQ2XB5Mjs.useHref));
-parcelHelpers.export(exports, "useInRouterContext", ()=>(0, _chunkSYFQ2XB5Mjs.useInRouterContext));
-parcelHelpers.export(exports, "useLinkClickHandler", ()=>(0, _chunkSYFQ2XB5Mjs.useLinkClickHandler));
-parcelHelpers.export(exports, "useLoaderData", ()=>(0, _chunkSYFQ2XB5Mjs.useLoaderData));
-parcelHelpers.export(exports, "useLocation", ()=>(0, _chunkSYFQ2XB5Mjs.useLocation));
-parcelHelpers.export(exports, "useMatch", ()=>(0, _chunkSYFQ2XB5Mjs.useMatch));
-parcelHelpers.export(exports, "useMatches", ()=>(0, _chunkSYFQ2XB5Mjs.useMatches));
-parcelHelpers.export(exports, "useNavigate", ()=>(0, _chunkSYFQ2XB5Mjs.useNavigate));
-parcelHelpers.export(exports, "useNavigation", ()=>(0, _chunkSYFQ2XB5Mjs.useNavigation));
-parcelHelpers.export(exports, "useNavigationType", ()=>(0, _chunkSYFQ2XB5Mjs.useNavigationType));
-parcelHelpers.export(exports, "useOutlet", ()=>(0, _chunkSYFQ2XB5Mjs.useOutlet));
-parcelHelpers.export(exports, "useOutletContext", ()=>(0, _chunkSYFQ2XB5Mjs.useOutletContext));
-parcelHelpers.export(exports, "useParams", ()=>(0, _chunkSYFQ2XB5Mjs.useParams));
-parcelHelpers.export(exports, "useResolvedPath", ()=>(0, _chunkSYFQ2XB5Mjs.useResolvedPath));
-parcelHelpers.export(exports, "useRevalidator", ()=>(0, _chunkSYFQ2XB5Mjs.useRevalidator));
-parcelHelpers.export(exports, "useRouteError", ()=>(0, _chunkSYFQ2XB5Mjs.useRouteError));
-parcelHelpers.export(exports, "useRouteLoaderData", ()=>(0, _chunkSYFQ2XB5Mjs.useRouteLoaderData));
-parcelHelpers.export(exports, "useRoutes", ()=>(0, _chunkSYFQ2XB5Mjs.useRoutes));
-parcelHelpers.export(exports, "useSearchParams", ()=>(0, _chunkSYFQ2XB5Mjs.useSearchParams));
-parcelHelpers.export(exports, "useSubmit", ()=>(0, _chunkSYFQ2XB5Mjs.useSubmit));
-parcelHelpers.export(exports, "useViewTransitionState", ()=>(0, _chunkSYFQ2XB5Mjs.useViewTransitionState));
-var _chunkSYFQ2XB5Mjs = require("./chunk-SYFQ2XB5.mjs");
+parcelHelpers.export(exports, "Await", ()=>(0, _chunkIR6S3I6YMjs.Await));
+parcelHelpers.export(exports, "BrowserRouter", ()=>(0, _chunkIR6S3I6YMjs.BrowserRouter));
+parcelHelpers.export(exports, "Form", ()=>(0, _chunkIR6S3I6YMjs.Form));
+parcelHelpers.export(exports, "HashRouter", ()=>(0, _chunkIR6S3I6YMjs.HashRouter));
+parcelHelpers.export(exports, "IDLE_BLOCKER", ()=>(0, _chunkIR6S3I6YMjs.IDLE_BLOCKER));
+parcelHelpers.export(exports, "IDLE_FETCHER", ()=>(0, _chunkIR6S3I6YMjs.IDLE_FETCHER));
+parcelHelpers.export(exports, "IDLE_NAVIGATION", ()=>(0, _chunkIR6S3I6YMjs.IDLE_NAVIGATION));
+parcelHelpers.export(exports, "Link", ()=>(0, _chunkIR6S3I6YMjs.Link));
+parcelHelpers.export(exports, "Links", ()=>(0, _chunkIR6S3I6YMjs.Links));
+parcelHelpers.export(exports, "MemoryRouter", ()=>(0, _chunkIR6S3I6YMjs.MemoryRouter));
+parcelHelpers.export(exports, "Meta", ()=>(0, _chunkIR6S3I6YMjs.Meta));
+parcelHelpers.export(exports, "NavLink", ()=>(0, _chunkIR6S3I6YMjs.NavLink));
+parcelHelpers.export(exports, "Navigate", ()=>(0, _chunkIR6S3I6YMjs.Navigate));
+parcelHelpers.export(exports, "NavigationType", ()=>(0, _chunkIR6S3I6YMjs.Action));
+parcelHelpers.export(exports, "Outlet", ()=>(0, _chunkIR6S3I6YMjs.Outlet));
+parcelHelpers.export(exports, "PrefetchPageLinks", ()=>(0, _chunkIR6S3I6YMjs.PrefetchPageLinks));
+parcelHelpers.export(exports, "Route", ()=>(0, _chunkIR6S3I6YMjs.Route));
+parcelHelpers.export(exports, "Router", ()=>(0, _chunkIR6S3I6YMjs.Router));
+parcelHelpers.export(exports, "RouterProvider", ()=>(0, _chunkIR6S3I6YMjs.RouterProvider));
+parcelHelpers.export(exports, "Routes", ()=>(0, _chunkIR6S3I6YMjs.Routes));
+parcelHelpers.export(exports, "Scripts", ()=>(0, _chunkIR6S3I6YMjs.Scripts));
+parcelHelpers.export(exports, "ScrollRestoration", ()=>(0, _chunkIR6S3I6YMjs.ScrollRestoration));
+parcelHelpers.export(exports, "ServerRouter", ()=>(0, _chunkIR6S3I6YMjs.ServerRouter));
+parcelHelpers.export(exports, "StaticRouter", ()=>(0, _chunkIR6S3I6YMjs.StaticRouter));
+parcelHelpers.export(exports, "StaticRouterProvider", ()=>(0, _chunkIR6S3I6YMjs.StaticRouterProvider));
+parcelHelpers.export(exports, "UNSAFE_DataRouterContext", ()=>(0, _chunkIR6S3I6YMjs.DataRouterContext));
+parcelHelpers.export(exports, "UNSAFE_DataRouterStateContext", ()=>(0, _chunkIR6S3I6YMjs.DataRouterStateContext));
+parcelHelpers.export(exports, "UNSAFE_ErrorResponseImpl", ()=>(0, _chunkIR6S3I6YMjs.ErrorResponseImpl));
+parcelHelpers.export(exports, "UNSAFE_FetchersContext", ()=>(0, _chunkIR6S3I6YMjs.FetchersContext));
+parcelHelpers.export(exports, "UNSAFE_FrameworkContext", ()=>(0, _chunkIR6S3I6YMjs.FrameworkContext));
+parcelHelpers.export(exports, "UNSAFE_LocationContext", ()=>(0, _chunkIR6S3I6YMjs.LocationContext));
+parcelHelpers.export(exports, "UNSAFE_NavigationContext", ()=>(0, _chunkIR6S3I6YMjs.NavigationContext));
+parcelHelpers.export(exports, "UNSAFE_RemixErrorBoundary", ()=>(0, _chunkIR6S3I6YMjs.RemixErrorBoundary));
+parcelHelpers.export(exports, "UNSAFE_RouteContext", ()=>(0, _chunkIR6S3I6YMjs.RouteContext));
+parcelHelpers.export(exports, "UNSAFE_ServerMode", ()=>(0, _chunkIR6S3I6YMjs.ServerMode));
+parcelHelpers.export(exports, "UNSAFE_SingleFetchRedirectSymbol", ()=>(0, _chunkIR6S3I6YMjs.SingleFetchRedirectSymbol));
+parcelHelpers.export(exports, "UNSAFE_ViewTransitionContext", ()=>(0, _chunkIR6S3I6YMjs.ViewTransitionContext));
+parcelHelpers.export(exports, "UNSAFE_createBrowserHistory", ()=>(0, _chunkIR6S3I6YMjs.createBrowserHistory));
+parcelHelpers.export(exports, "UNSAFE_createClientRoutes", ()=>(0, _chunkIR6S3I6YMjs.createClientRoutes));
+parcelHelpers.export(exports, "UNSAFE_createClientRoutesWithHMRRevalidationOptOut", ()=>(0, _chunkIR6S3I6YMjs.createClientRoutesWithHMRRevalidationOptOut));
+parcelHelpers.export(exports, "UNSAFE_createRouter", ()=>(0, _chunkIR6S3I6YMjs.createRouter));
+parcelHelpers.export(exports, "UNSAFE_decodeViaTurboStream", ()=>(0, _chunkIR6S3I6YMjs.decodeViaTurboStream));
+parcelHelpers.export(exports, "UNSAFE_deserializeErrors", ()=>(0, _chunkIR6S3I6YMjs.deserializeErrors));
+parcelHelpers.export(exports, "UNSAFE_getPatchRoutesOnNavigationFunction", ()=>(0, _chunkIR6S3I6YMjs.getPatchRoutesOnNavigationFunction));
+parcelHelpers.export(exports, "UNSAFE_getSingleFetchDataStrategy", ()=>(0, _chunkIR6S3I6YMjs.getSingleFetchDataStrategy));
+parcelHelpers.export(exports, "UNSAFE_invariant", ()=>(0, _chunkIR6S3I6YMjs.invariant));
+parcelHelpers.export(exports, "UNSAFE_mapRouteProperties", ()=>(0, _chunkIR6S3I6YMjs.mapRouteProperties));
+parcelHelpers.export(exports, "UNSAFE_shouldHydrateRouteLoader", ()=>(0, _chunkIR6S3I6YMjs.shouldHydrateRouteLoader));
+parcelHelpers.export(exports, "UNSAFE_useFogOFWarDiscovery", ()=>(0, _chunkIR6S3I6YMjs.useFogOFWarDiscovery));
+parcelHelpers.export(exports, "UNSAFE_useScrollRestoration", ()=>(0, _chunkIR6S3I6YMjs.useScrollRestoration));
+parcelHelpers.export(exports, "createBrowserRouter", ()=>(0, _chunkIR6S3I6YMjs.createBrowserRouter));
+parcelHelpers.export(exports, "createCookie", ()=>(0, _chunkIR6S3I6YMjs.createCookie));
+parcelHelpers.export(exports, "createCookieSessionStorage", ()=>(0, _chunkIR6S3I6YMjs.createCookieSessionStorage));
+parcelHelpers.export(exports, "createHashRouter", ()=>(0, _chunkIR6S3I6YMjs.createHashRouter));
+parcelHelpers.export(exports, "createMemoryRouter", ()=>(0, _chunkIR6S3I6YMjs.createMemoryRouter));
+parcelHelpers.export(exports, "createMemorySessionStorage", ()=>(0, _chunkIR6S3I6YMjs.createMemorySessionStorage));
+parcelHelpers.export(exports, "createPath", ()=>(0, _chunkIR6S3I6YMjs.createPath));
+parcelHelpers.export(exports, "createRequestHandler", ()=>(0, _chunkIR6S3I6YMjs.createRequestHandler));
+parcelHelpers.export(exports, "createRoutesFromChildren", ()=>(0, _chunkIR6S3I6YMjs.createRoutesFromChildren));
+parcelHelpers.export(exports, "createRoutesFromElements", ()=>(0, _chunkIR6S3I6YMjs.createRoutesFromElements));
+parcelHelpers.export(exports, "createRoutesStub", ()=>(0, _chunkIR6S3I6YMjs.createRoutesStub));
+parcelHelpers.export(exports, "createSearchParams", ()=>(0, _chunkIR6S3I6YMjs.createSearchParams));
+parcelHelpers.export(exports, "createSession", ()=>(0, _chunkIR6S3I6YMjs.createSession));
+parcelHelpers.export(exports, "createSessionStorage", ()=>(0, _chunkIR6S3I6YMjs.createSessionStorage));
+parcelHelpers.export(exports, "createStaticHandler", ()=>(0, _chunkIR6S3I6YMjs.createStaticHandler));
+parcelHelpers.export(exports, "createStaticRouter", ()=>(0, _chunkIR6S3I6YMjs.createStaticRouter));
+parcelHelpers.export(exports, "data", ()=>(0, _chunkIR6S3I6YMjs.data));
+parcelHelpers.export(exports, "generatePath", ()=>(0, _chunkIR6S3I6YMjs.generatePath));
+parcelHelpers.export(exports, "isCookie", ()=>(0, _chunkIR6S3I6YMjs.isCookie));
+parcelHelpers.export(exports, "isRouteErrorResponse", ()=>(0, _chunkIR6S3I6YMjs.isRouteErrorResponse));
+parcelHelpers.export(exports, "isSession", ()=>(0, _chunkIR6S3I6YMjs.isSession));
+parcelHelpers.export(exports, "matchPath", ()=>(0, _chunkIR6S3I6YMjs.matchPath));
+parcelHelpers.export(exports, "matchRoutes", ()=>(0, _chunkIR6S3I6YMjs.matchRoutes));
+parcelHelpers.export(exports, "parsePath", ()=>(0, _chunkIR6S3I6YMjs.parsePath));
+parcelHelpers.export(exports, "redirect", ()=>(0, _chunkIR6S3I6YMjs.redirect));
+parcelHelpers.export(exports, "redirectDocument", ()=>(0, _chunkIR6S3I6YMjs.redirectDocument));
+parcelHelpers.export(exports, "renderMatches", ()=>(0, _chunkIR6S3I6YMjs.renderMatches));
+parcelHelpers.export(exports, "replace", ()=>(0, _chunkIR6S3I6YMjs.replace));
+parcelHelpers.export(exports, "resolvePath", ()=>(0, _chunkIR6S3I6YMjs.resolvePath));
+parcelHelpers.export(exports, "unstable_HistoryRouter", ()=>(0, _chunkIR6S3I6YMjs.HistoryRouter));
+parcelHelpers.export(exports, "unstable_setDevServerHooks", ()=>(0, _chunkIR6S3I6YMjs.setDevServerHooks));
+parcelHelpers.export(exports, "unstable_usePrompt", ()=>(0, _chunkIR6S3I6YMjs.usePrompt));
+parcelHelpers.export(exports, "useActionData", ()=>(0, _chunkIR6S3I6YMjs.useActionData));
+parcelHelpers.export(exports, "useAsyncError", ()=>(0, _chunkIR6S3I6YMjs.useAsyncError));
+parcelHelpers.export(exports, "useAsyncValue", ()=>(0, _chunkIR6S3I6YMjs.useAsyncValue));
+parcelHelpers.export(exports, "useBeforeUnload", ()=>(0, _chunkIR6S3I6YMjs.useBeforeUnload));
+parcelHelpers.export(exports, "useBlocker", ()=>(0, _chunkIR6S3I6YMjs.useBlocker));
+parcelHelpers.export(exports, "useFetcher", ()=>(0, _chunkIR6S3I6YMjs.useFetcher));
+parcelHelpers.export(exports, "useFetchers", ()=>(0, _chunkIR6S3I6YMjs.useFetchers));
+parcelHelpers.export(exports, "useFormAction", ()=>(0, _chunkIR6S3I6YMjs.useFormAction));
+parcelHelpers.export(exports, "useHref", ()=>(0, _chunkIR6S3I6YMjs.useHref));
+parcelHelpers.export(exports, "useInRouterContext", ()=>(0, _chunkIR6S3I6YMjs.useInRouterContext));
+parcelHelpers.export(exports, "useLinkClickHandler", ()=>(0, _chunkIR6S3I6YMjs.useLinkClickHandler));
+parcelHelpers.export(exports, "useLoaderData", ()=>(0, _chunkIR6S3I6YMjs.useLoaderData));
+parcelHelpers.export(exports, "useLocation", ()=>(0, _chunkIR6S3I6YMjs.useLocation));
+parcelHelpers.export(exports, "useMatch", ()=>(0, _chunkIR6S3I6YMjs.useMatch));
+parcelHelpers.export(exports, "useMatches", ()=>(0, _chunkIR6S3I6YMjs.useMatches));
+parcelHelpers.export(exports, "useNavigate", ()=>(0, _chunkIR6S3I6YMjs.useNavigate));
+parcelHelpers.export(exports, "useNavigation", ()=>(0, _chunkIR6S3I6YMjs.useNavigation));
+parcelHelpers.export(exports, "useNavigationType", ()=>(0, _chunkIR6S3I6YMjs.useNavigationType));
+parcelHelpers.export(exports, "useOutlet", ()=>(0, _chunkIR6S3I6YMjs.useOutlet));
+parcelHelpers.export(exports, "useOutletContext", ()=>(0, _chunkIR6S3I6YMjs.useOutletContext));
+parcelHelpers.export(exports, "useParams", ()=>(0, _chunkIR6S3I6YMjs.useParams));
+parcelHelpers.export(exports, "useResolvedPath", ()=>(0, _chunkIR6S3I6YMjs.useResolvedPath));
+parcelHelpers.export(exports, "useRevalidator", ()=>(0, _chunkIR6S3I6YMjs.useRevalidator));
+parcelHelpers.export(exports, "useRouteError", ()=>(0, _chunkIR6S3I6YMjs.useRouteError));
+parcelHelpers.export(exports, "useRouteLoaderData", ()=>(0, _chunkIR6S3I6YMjs.useRouteLoaderData));
+parcelHelpers.export(exports, "useRoutes", ()=>(0, _chunkIR6S3I6YMjs.useRoutes));
+parcelHelpers.export(exports, "useSearchParams", ()=>(0, _chunkIR6S3I6YMjs.useSearchParams));
+parcelHelpers.export(exports, "useSubmit", ()=>(0, _chunkIR6S3I6YMjs.useSubmit));
+parcelHelpers.export(exports, "useViewTransitionState", ()=>(0, _chunkIR6S3I6YMjs.useViewTransitionState));
+var _chunkIR6S3I6YMjs = require("./chunk-IR6S3I6Y.mjs");
 
-},{"./chunk-SYFQ2XB5.mjs":"1YTJ3","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"1YTJ3":[function(require,module,exports,__globalThis) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./chunk-IR6S3I6Y.mjs":"gXZFb"}],"gXZFb":[function(require,module,exports,__globalThis) {
 /**
- * react-router v7.1.3
+ * react-router v7.1.5
  *
  * Copyright (c) Remix Software Inc.
  *
@@ -26362,8 +26364,8 @@ var _turboStream = require("turbo-stream");
 var _cookie = require("cookie");
 // lib/server-runtime/headers.ts
 var _setCookieParser = require("set-cookie-parser");
-var $d27cd9389be19f7a$import_meta = Object.assign(Object.create(null), {
-    url: "file:///node_modules/react-router/dist/development/chunk-SYFQ2XB5.mjs"
+var $6371dd42e8190209$import_meta = Object.assign(Object.create(null), {
+    url: "file:///node_modules/react-router/dist/development/chunk-IR6S3I6Y.mjs"
 });
 var global = arguments[3];
 var Action = /* @__PURE__ */ ((Action2)=>{
@@ -27143,6 +27145,7 @@ function createRouter(init) {
     let getScrollPosition = null;
     let initialScrollRestored = init.hydrationData != null;
     let initialMatches = matchRoutes(dataRoutes, init.history.location, basename);
+    let initialMatchesIsFOW = false;
     let initialErrors = null;
     if (initialMatches == null && !patchRoutesOnNavigationImpl) {
         let error = getInternalRouterError(404, {
@@ -27163,7 +27166,10 @@ function createRouter(init) {
         initialized = false;
         initialMatches = [];
         let fogOfWar = checkFogOfWar(null, dataRoutes, init.history.location.pathname);
-        if (fogOfWar.active && fogOfWar.matches) initialMatches = fogOfWar.matches;
+        if (fogOfWar.active && fogOfWar.matches) {
+            initialMatchesIsFOW = true;
+            initialMatches = fogOfWar.matches;
+        }
     } else if (initialMatches.some((m)=>m.route.lazy)) initialized = false;
     else if (!initialMatches.some((m)=>m.route.loader)) initialized = true;
     else {
@@ -27465,8 +27471,17 @@ function createRouter(init) {
         pendingViewTransitionEnabled = (opts && opts.enableViewTransition) === true;
         let routesToUse = inFlightDataRoutes || dataRoutes;
         let loadingNavigation = opts && opts.overrideNavigation;
-        let matches = matchRoutes(routesToUse, location, basename);
+        let matches = opts?.initialHydration && state.matches && state.matches.length > 0 && !initialMatchesIsFOW ? // `matchRoutes()` has already been called if we're in here via `router.initialize()`
+        state.matches : matchRoutes(routesToUse, location, basename);
         let flushSync = (opts && opts.flushSync) === true;
+        if (matches && state.initialized && !isRevalidationRequired && isHashChangeOnly(state.location, location) && !(opts && opts.submission && isMutationMethod(opts.submission.formMethod))) {
+            completeNavigation(location, {
+                matches
+            }, {
+                flushSync
+            });
+            return;
+        }
         let fogOfWar = checkFogOfWar(matches, routesToUse, location.pathname);
         if (fogOfWar.active && fogOfWar.matches) matches = fogOfWar.matches;
         if (!matches) {
@@ -27477,14 +27492,6 @@ function createRouter(init) {
                 errors: {
                     [route.id]: error
                 }
-            }, {
-                flushSync
-            });
-            return;
-        }
-        if (state.initialized && !isRevalidationRequired && isHashChangeOnly(state.location, location) && !(opts && opts.submission && isMutationMethod(opts.submission.formMethod))) {
-            completeNavigation(location, {
-                matches
             }, {
                 flushSync
             });
@@ -29115,9 +29122,15 @@ async function convertDataStrategyResultToDataResult(dataStrategyResult) {
             if (result.data instanceof Error) return {
                 type: "error" /* error */ ,
                 error: result.data,
-                statusCode: result.init?.status
+                statusCode: result.init?.status,
+                headers: result.init?.headers ? new Headers(result.init.headers) : void 0
             };
-            result = new ErrorResponseImpl(result.init?.status || 500, void 0, result.data);
+            return {
+                type: "error" /* error */ ,
+                error: new ErrorResponseImpl(result.init?.status || 500, void 0, result.data),
+                statusCode: isRouteErrorResponse(result) ? result.status : void 0,
+                headers: result.init?.headers ? new Headers(result.init.headers) : void 0
+            };
         }
         return {
             type: "error" /* error */ ,
@@ -29698,7 +29711,7 @@ function useRoutesImpl(routes, locationArg, dataRouterState, future) {
     invariant(useInRouterContext(), // TODO: This error is probably because they somehow have 2 versions of the
     // router loaded. We can help them understand how to avoid that.
     `useRoutes() may be used only in the context of a <Router> component.`);
-    let { navigator: navigator2 } = _react.useContext(NavigationContext);
+    let { navigator: navigator2, static: isStatic } = _react.useContext(NavigationContext);
     let { matches: parentMatches } = _react.useContext(RouteContext);
     let routeMatch = parentMatches[parentMatches.length - 1];
     let parentParams = routeMatch ? routeMatch.params : {};
@@ -29725,7 +29738,7 @@ Please change the parent <Route path="${parentPath}"> to <Route path="${parentPa
         let segments = pathname.replace(/^\//, "").split("/");
         remainingPathname = "/" + segments.slice(parentSegments.length).join("/");
     }
-    let matches = matchRoutes(routes, {
+    let matches = !isStatic && dataRouterState && dataRouterState.matches && dataRouterState.matches.length > 0 ? dataRouterState.matches : matchRoutes(routes, {
         pathname: remainingPathname
     });
     if (ENABLE_DEV_WARNINGS) {
@@ -30685,7 +30698,7 @@ async function loadRouteModule(route, routeModulesCache) {
         console.error(`Error loading route module \`${route.module}\`, reloading page...`);
         console.error(error);
         if (window.__reactRouterContext && window.__reactRouterContext.isSpaMode && // @ts-expect-error
-        $d27cd9389be19f7a$import_meta.hot) throw error;
+        $6371dd42e8190209$import_meta.hot) throw error;
         window.location.reload();
         return new Promise(()=>{});
     }
@@ -31070,6 +31083,24 @@ function singleFetchUrl(reqUrl) {
 async function fetchAndDecode(url, init) {
     let res = await fetch(url, init);
     if (res.status === 404 && !res.headers.has("X-Remix-Response")) throw new ErrorResponseImpl(404, "Not Found", true);
+    const NO_BODY_STATUS_CODES2 = /* @__PURE__ */ new Set([
+        100,
+        101,
+        204,
+        205
+    ]);
+    if (NO_BODY_STATUS_CODES2.has(res.status)) {
+        if (!init.method || init.method === "GET") return {
+            status: res.status,
+            data: {}
+        };
+        else return {
+            status: res.status,
+            data: {
+                data: void 0
+            }
+        };
+    }
     invariant2(res.body, "No response body to decode");
     try {
         let decoded = await decodeViaTurboStream(res.body, window);
@@ -31590,10 +31621,11 @@ function useFogOFWarDiscovery(router, manifest, routeModules, isSpaMode) {
         function registerElement(el) {
             let path = el.tagName === "FORM" ? el.getAttribute("action") : el.getAttribute("href");
             if (!path) return;
-            let url = new URL(path, window.location.origin);
-            if (!discoveredPaths.has(url.pathname)) nextPaths.add(url.pathname);
+            let pathname = el.tagName === "A" ? el.pathname : new URL(path, window.location.origin).pathname;
+            if (!discoveredPaths.has(pathname)) nextPaths.add(pathname);
         }
         async function fetchPatches() {
+            document.querySelectorAll("a[data-discover], form[data-discover]").forEach(registerElement);
             let lazyPaths = Array.from(nextPaths.keys()).filter((path)=>{
                 if (discoveredPaths.has(path)) {
                     nextPaths.delete(path);
@@ -31608,28 +31640,9 @@ function useFogOFWarDiscovery(router, manifest, routeModules, isSpaMode) {
                 console.error("Failed to fetch manifest patches", e);
             }
         }
-        document.body.querySelectorAll("a[data-discover], form[data-discover]").forEach((el)=>registerElement(el));
-        fetchPatches();
         let debouncedFetchPatches = debounce(fetchPatches, 100);
-        function isElement(node) {
-            return node.nodeType === Node.ELEMENT_NODE;
-        }
-        let observer = new MutationObserver((records)=>{
-            let elements = /* @__PURE__ */ new Set();
-            records.forEach((r)=>{
-                [
-                    r.target,
-                    ...r.addedNodes
-                ].forEach((node)=>{
-                    if (!isElement(node)) return;
-                    if (node.tagName === "A" && node.getAttribute("data-discover")) elements.add(node);
-                    else if (node.tagName === "FORM" && node.getAttribute("data-discover")) elements.add(node);
-                    if (node.tagName !== "A") node.querySelectorAll("a[data-discover], form[data-discover]").forEach((el)=>elements.add(el));
-                });
-            });
-            elements.forEach((el)=>registerElement(el));
-            debouncedFetchPatches();
-        });
+        fetchPatches();
+        let observer = new MutationObserver(()=>debouncedFetchPatches());
         observer.observe(document.documentElement, {
             subtree: true,
             childList: true,
@@ -32074,7 +32087,7 @@ function mergeRefs(...refs) {
 // lib/dom/lib.tsx
 var isBrowser = typeof window !== "undefined" && typeof window.document !== "undefined" && typeof window.document.createElement !== "undefined";
 try {
-    if (isBrowser) window.__reactRouterVersion = "7.1.3";
+    if (isBrowser) window.__reactRouterVersion = "7.1.5";
 } catch (e) {}
 function createBrowserRouter(routes, opts) {
     return createRouter({
@@ -33510,8 +33523,9 @@ function prependCookies(parentHeaders, childHeaders) {
     let parentSetCookieString = parentHeaders.get("Set-Cookie");
     if (parentSetCookieString) {
         let cookies = (0, _setCookieParser.splitCookiesString)(parentSetCookieString);
+        let childCookies = new Set(childHeaders.getSetCookie());
         cookies.forEach((cookie)=>{
-            childHeaders.append("Set-Cookie", cookie);
+            if (!childCookies.has(cookie)) childHeaders.append("Set-Cookie", cookie);
         });
     }
 }
@@ -33717,6 +33731,13 @@ function encodeViaTurboStream(data2, requestSignal, streamTimeout, serverMode) {
     });
 }
 // lib/server-runtime/server.ts
+var NO_BODY_STATUS_CODES = /* @__PURE__ */ new Set([
+    100,
+    101,
+    204,
+    205,
+    304
+]);
 function derive(build, mode) {
     let routes = createRoutes(build.routes);
     let dataRoutes = createStaticHandlerDataRoutes(build.routes, build.future);
@@ -33842,8 +33863,8 @@ async function handleSingleFetchRequest(serverMode, build, staticHandler, reques
     let { result, headers, status } = request.method !== "GET" ? await singleFetchAction(build, serverMode, staticHandler, request, handlerUrl, loadContext, handleError) : await singleFetchLoaders(build, serverMode, staticHandler, request, handlerUrl, loadContext, handleError);
     let resultHeaders = new Headers(headers);
     resultHeaders.set("X-Remix-Response", "yes");
-    if (status === 304) return new Response(null, {
-        status: 304,
+    if (NO_BODY_STATUS_CODES.has(status)) return new Response(null, {
+        status,
         headers: resultHeaders
     });
     resultHeaders.set("Content-Type", "text/x-script");
@@ -33866,8 +33887,8 @@ async function handleDocumentRequest(serverMode, build, staticHandler, request, 
     }
     if (isResponse(context)) return context;
     let headers = getDocumentHeaders(build, context);
-    if (context.statusCode === 304) return new Response(null, {
-        status: 304,
+    if (NO_BODY_STATUS_CODES.has(context.statusCode)) return new Response(null, {
+        status: context.statusCode,
         headers
     });
     if (context.errors) {
@@ -33940,8 +33961,9 @@ async function handleResourceRequest(serverMode, staticHandler, routeId, request
             routeId,
             requestContext: loadContext
         });
-        invariant3(isResponse(response), "Expected a Response to be returned from resource route handler");
-        return response;
+        if (isResponse(response)) return response;
+        if (typeof response === "string") return new Response(response);
+        return Response.json(response);
     } catch (error) {
         if (isResponse(error)) {
             error.headers.set("X-Remix-Catch", "yes");
