@@ -35,6 +35,7 @@
   },
   "devDependencies": {
     "@parcel/transformer-sass": "^2.13.3",
+    "@swc/core": "^1.10.15",
     "buffer": "^6.0.3",
     "parcel": "^2.13.3",
     "process": "^0.11.10"
